@@ -27,7 +27,8 @@ OTHER_TRACKING = [
     (re.compile(r"\bG-(?!8MRD9BZ1VJ\b)[A-Z0-9]{8,}\b"), "다른 GA4 측정 ID"),
     (re.compile(r"snap\.licdn\.com|_linkedin_partner_id"), "LinkedIn 인사이트 태그"),
 ]
-PLACEHOLDERS = ["FOLDER-NAME", "EVENT TITLE", "ONE OR TWO SENTENCES"]
+PLACEHOLDERS = ["FOLDER-NAME", "EVENT TITLE", "ONE OR TWO SENTENCES", 'data-booking-until="YYYY-MM-DD"']
+BOOKING_URL = re.compile(r"https://(?:calendar\.app\.google|calendar\.google\.com/calendar/appointments)/", re.I)
 # 제품 이름 잘못된 표기 (대소문자만 다른 경우)
 WRONG_NAME = re.compile(r"\b(?:Syn" + r"Titan|SYN" + r"TITAN|Syn Titan)\b")  # 화면 글자만 검사(주소·파일 이름의 소문자는 정상)
 INTERNAL_HOSTS = ("cubig.ai", "syntitan.ai", "llmcapsule.ai")
@@ -150,6 +151,20 @@ def check_html(p, sitemap):
             host = re.sub(r"^https?://", "", href).split("/")[0].split("?")[0]
             if host.endswith(INTERNAL_HOSTS) or not href.startswith("http"):
                 err(r, f"페이지 안 링크에 UTM이 붙어 있습니다(원래 유입 경로가 덮임): {href[:120]}")
+
+    # 미팅 예약 링크 (CLAUDE.md §9-1)
+    has_until = False
+    for m in re.finditer(r"<(a|iframe)\b[^>]*>", html, re.I):
+        tag = m.group(0)
+        until = re.search(r"data-booking-until=[\"']([^\"']*)", tag)
+        if until:
+            has_until = True
+            if not DATE.match(until.group(1)) and not is_template:
+                err(r, f"data-booking-until 날짜는 YYYY-MM-DD 형식이어야 합니다: {until.group(1)}")
+        if BOOKING_URL.search(tag) and not until:
+            warn(r, "예약 링크에 행사 마지막 날(data-booking-until)이 없습니다. 행사가 끝나도 끝난 예약 화면이 그대로 보입니다(CLAUDE.md §9-1).")
+    if has_until and "/assets/booking.js" not in head:
+        err(r, "data-booking-until을 쓰는데 <head>에 /assets/booking.js 가 없습니다. 템플릿 줄을 그대로 넣어 주세요.")
 
     # 문구
     text = re.sub(r"<(script|style)[\s\S]*?</\1>|<[^>]+>", " ", html)

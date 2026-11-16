@@ -127,6 +127,18 @@ events-pages/
 - UTM은 메일·SNS·QR·광고처럼 **밖에서 이벤트 페이지로 들어오는 링크**에만 씁니다. 사용자가 그런 링크를 만들어 달라고 하면 README의 값(영문 소문자·하이픈, campaign = 폴더 이름, `utm_term` 금지)으로 만들어 줍니다.
 - 신청 폼은 직접 만들지 않고 HubSpot 폼 삽입 코드(Share → Embed code)를 받아 그대로 넣습니다. 코드를 새로 쓰거나 고치지 않습니다. 사용자가 코드를 안 줬으면 README의 HubSpot 절차를 안내합니다. 폼을 넣으면 PR에 '신청 폼 있음 + 폼 이름'을 적습니다.
 
+## 9-1. 미팅 예약 링크
+
+- 예약 링크는 **contact@cubig.ai 공용 계정에서 만든 Google 예약 페이지만** 씁니다. 개인 계정으로 만든 예약 링크는 넣지 않습니다(휴가·퇴사 시 끊김). 누구 계정 링크인지 링크만으로는 알 수 없으니, 사용자에게 확인하고 PR에 적습니다.
+- 행사 예약 링크에는 행사 마지막 날을 같이 적습니다. 마지막 날이 지나면 `assets/booking.js` 가 버튼을 상시 30분 미팅 페이지(`/meet/`, 한국어 `/ko/meet/`)로 자동으로 바꾸고, 예약 화면(iframe)·부스 안내 칸은 숨깁니다.
+  ```html
+  <a class="btn" href="https://calendar.app.google/..." data-booking-until="2026-12-10">Book a meeting</a>
+  <iframe src="https://calendar.google.com/calendar/appointments/schedules/...?gv=true" data-booking-until="2026-12-10"></iframe>
+  ```
+  `<head>`에 `<script src="/assets/booking.js" defer></script>` 가 있어야 합니다(템플릿에 들어 있음).
+- 행사가 끝난 뒤 미팅 버튼은 `/meet/` 으로 보냅니다. 상시 30분 미팅 예약 링크는 `/meet/` 페이지 한 곳에만 둡니다.
+- 사용자가 예약 링크를 주지 않았으면 `/meet/` 으로 연결해 두고 PR에 '행사 예약 링크 필요'라고 적습니다.
+
 ## 10. 공개 저장소 주의
 
 이 저장소의 파일과 수정 기록은 **누구나 볼 수 있고, 지워도 기록에 남습니다.** 브랜치에 올린 초안도 바로 보입니다.
@@ -148,4 +160,4 @@ events-pages/
 - 만든·바꾼 페이지 주소(공개 예정 주소), PR 링크
 - 검사 결과(`tools/check_pages.py` 오류 0건인지, 남은 경고)
 - 확인한 것(데스크톱·모바일·링크)과 확인 못 한 것
-- 사람이 결정해야 할 것(검색 노출, 숫자·고객·Gartner 사용, 새 추적 이벤트, 공통 파일 변경, 공홈 반영 필요 등)
+- 사람이 결정해야 할 것(검색 노출, 숫자·고객·Gartner 사용, 예약 링크가 contact@ 계정 것인지, 새 추적 이벤트, 공통 파일 변경, 공홈 반영 필요 등)

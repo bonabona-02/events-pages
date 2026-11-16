@@ -48,6 +48,8 @@ gtag('config', 'G-8MRD9BZ1VJ');
 
 <!-- 공통 머리글(CUBIG 로고)·바닥글(정책 링크). 행사 디자인상 빼야 하면 이 줄만 지우세요 -->
 <script src="/assets/site-chrome.js" defer></script>
+<!-- 예약 버튼 자동 전환(행사가 끝나면 /meet/ 으로). 지우지 마세요 -->
+<script src="/assets/booking.js" defer></script>
 
 <style>
   *{box-sizing:border-box}
@@ -66,6 +68,8 @@ gtag('config', 'G-8MRD9BZ1VJ');
   <!-- <img src="hero.webp" alt="이미지 설명"> -->
   <!-- ⑦ 신청 폼 자리: HubSpot 폼의 Share > Embed code를 그대로 붙여 넣기 (README 6번) -->
   <!-- 제품·공홈 링크에는 UTM을 붙이지 않습니다 (README 5번) -->
+  <!-- ⑧ 미팅 예약: contact@cubig.ai 공용 계정에서 만든 행사 예약 링크 + 행사 마지막 날. 링크가 없으면 href="/meet/" 그대로 -->
+  <p><a class="button" href="/meet/" data-booking-until="YYYY-MM-DD">Book a meeting</a></p>
   <p><a class="button" href="https://cubig.ai">Learn more</a></p>
 </main>
 </body>
