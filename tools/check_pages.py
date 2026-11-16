@@ -263,7 +263,7 @@ def check_changed(base):
         parts = line.split("\t")
         code, paths = parts[0], parts[1:]
         old, new = paths[0], paths[-1]
-        if code[0] in "DR" and old.endswith("index.html"):
+        if code[0] in "DR" and old.endswith("index.html") and not old.startswith("_template/"):
             err(old, "공개된 페이지가 지워지거나 이름이 바뀌었습니다. 광고·메일 링크가 깨집니다. 먼저 마케팅팀에 확인해 주세요.")
         for f in {old, new}:
             if code[0] == "A" and f.startswith("assets/media/"):
