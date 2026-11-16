@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://events.cubig.ai/ko/all/">
+<link rel="alternate" hreflang="en" href="https://events.cubig.ai/all/">
+<link rel="alternate" hreflang="ko" href="https://events.cubig.ai/ko/all/">
+<title>전체 행사 | CUBIG 행사</title>
+<meta name="description" content="2024년부터 CUBIG이 참가한 전시, 무대, 수상, 라이브 방송을 모두 모았습니다.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CUBIG">
+<meta property="og:title" content="전체 행사">
+<meta property="og:url" content="https://events.cubig.ai/ko/all/">
+<meta property="og:image" content="https://events.cubig.ai/assets/media/photos/oracle-2026/booth-talk-1.jpg">
+<meta property="og:description" content="2024년부터 CUBIG이 참가한 전시, 무대, 수상, 라이브 방송을 모두 모았습니다.">
+<meta name="twitter:title" content="전체 행사">
+<meta name="twitter:description" content="2024년부터 CUBIG이 참가한 전시, 무대, 수상, 라이브 방송을 모두 모았습니다.">
+<meta name="twitter:image" content="https://events.cubig.ai/assets/media/photos/oracle-2026/booth-talk-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="https://cubig.ai/wp-content/themes/cubig/assets/images/logo/favicon.png" media="(prefers-color-scheme: light)">
+
+<!-- ⑤ 추적 코드 (GA4, 마케팅팀 관리 — 직접 수정·삭제하지 마세요) -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-8MRD9BZ1VJ');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8MRD9BZ1VJ"></script>
+
+<link rel="stylesheet" href="/assets/ev.css">
+<link rel="stylesheet" href="/assets/ev-pages.css">
+<style>
+.al-hero{padding:72px 0 24px}
+.al-hero h1{margin:16px 0 0;font-size:clamp(36px,4vw,52px);font-weight:500;letter-spacing:-.03em;line-height:1.1}
+.al-hero p{margin:16px 0 0;font-size:18px;color:#3a3a42;max-width:36em}
+.al-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:32px 0 8px}
+.al-tabs button{font:500 15px Manrope,sans-serif;padding:9px 16px;border-radius:999px;border:1px solid rgba(22,22,26,.14);background:#fff;color:#16161a;cursor:pointer}
+.al-tabs button[aria-pressed="true"]{background:#16161a;color:#fff;border-color:#16161a}
+.al-tabs button small{margin-left:6px;font-size:13px;opacity:.7}
+.al-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:24px 0 96px}
+.al-card{display:flex;flex-direction:column;text-decoration:none;color:#16161a;background:#fff;border:1px solid rgba(22,22,26,.08);border-radius:14px;overflow:hidden;transition:border-color .15s,box-shadow .15s}
+.al-card:hover{border-color:#6A4FD0;box-shadow:0 12px 30px -18px rgba(75,51,181,.45)}
+.al-card .im{aspect-ratio:16/9;background:#F4F1FE center/cover no-repeat}
+.al-card .im.none{background:#F4F1FE url(/assets/media/art/pixel-pattern.svg);background-size:56px}
+.al-card .bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.al-card .k{font-size:13px;font-weight:500;color:#4B33B5}
+.al-card b{font-size:17px;font-weight:600;line-height:1.35}
+.al-card em{font-style:normal;font-size:15px;color:#3a3a42}
+.al-card .cr{font-size:12px;color:#55555e}
+.al-card .go{margin-top:auto;padding-top:10px;font-size:14px;font-weight:500;color:#16161a}
+.al-card.static{cursor:default}.al-card.static:hover{border-color:rgba(22,22,26,.08);box-shadow:none}
+@media (max-width:1024px){.al-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.al-grid{grid-template-columns:1fr}}
+</style>
+<script src="/assets/ev-nav.js" defer></script>
+<script src="/assets/history.js" defer></script>
+</head>
+<body data-strip="off" data-lang-toggle data-cta="/meet/">
+<main>
+  <section class="al-hero"><div class="wrap">
+    <nav class="crumb" aria-label="이동 경로"><a href="https://cubig.ai/ko/events/">행사</a><span>›</span><span>전체 행사</span></nav>
+    <h1>전체 행사</h1>
+    <p>2024년부터 참가한 전시, 피칭, 수상, 라이브 방송입니다. 묶음을 골라 좁혀 볼 수 있습니다.</p>
+    <div class="al-tabs" id="alTabs"><button type="button" data-g="all" aria-pressed="false">전체<small></small></button><button type="button" data-g="floor" aria-pressed="false">전시·행사<small></small></button><button type="button" data-g="stage" aria-pressed="false">무대·수상<small></small></button><button type="button" data-g="air" aria-pressed="false">라이브 방송<small></small></button></div>
+  </div></section>
+  <div class="wrap"><div class="al-grid" id="alGrid"></div></div>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var KO=true, G={stage:'stage',exhibition:'floor',next:'floor',pitch:'stage',award:'stage',live:'air'};
+  var GO_IN='자세히 보기 →', GO_OUT='보도자료 보기 ↗', NONE='아직 없습니다.';
+  var list=HISTORY.slice().sort(function(a,b){return a.d<b.d?1:-1;});
+  var grid=document.getElementById('alGrid'), tabs=document.getElementById('alTabs');
+  function href(h){ if(h.link) return (KO?'/ko':'')+h.link; return h.src||''; }
+  function card(h){
+    var u=href(h), ext=!h.link&&!!h.src, tag=u?'a':'div';
+    return '<'+tag+' class="al-card'+(u?'':' static')+'"'+(u?' href="'+u+'"'+(ext?' target="_blank" rel="noopener"':''):'')+'>'+
+      '<div class="im'+(h.photo?'':' none')+'"'+(h.photo?' style="background-image:url('+h.photo+')"':'')+'></div>'+
+      '<div class="bd"><span class="k">'+KIND[h.kind]+'</span><b>'+h.name+'</b><em>'+h.date+(h.city?' · '+h.city:'')+'</em>'+(h.credit?'<small class="cr">'+h.credit+'</small>':'')+
+      (u?'<span class="go">'+(ext?GO_OUT:GO_IN)+'</span>':'')+'</div></'+tag+'>';
+  }
+  function show(g){
+    if(!/^(all|floor|stage|air)$/.test(g)) g='all';
+    var items=list.filter(function(h){return g==='all'||G[h.type||h.kind]===g;});
+    grid.innerHTML=items.length?items.map(card).join(''):'<p>'+NONE+'</p>';
+    [].forEach.call(tabs.children,function(b){b.setAttribute('aria-pressed',b.dataset.g===g);});
+  }
+  [].forEach.call(tabs.children,function(b){var g=b.dataset.g; b.querySelector('small').textContent=list.filter(function(h){return g==='all'||G[h.type||h.kind]===g;}).length;});
+  tabs.onclick=function(e){var b=e.target.closest('button'); if(!b) return; history.replaceState(null,'','#'+b.dataset.g); show(b.dataset.g);};
+  show(location.hash.slice(1)); addEventListener('hashchange',function(){show(location.hash.slice(1));});
+});
+</script>
+</body>
+</html>
