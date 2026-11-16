@@ -47,14 +47,33 @@ IMG_WARN = 1 * 1024 * 1024
 HTML_WARN = 2 * 1024 * 1024
 SKIP_DIRS = {".git", ".github", "tools", "node_modules", ".claude"}
 # 모든 페이지에 영향을 주는 파일·폴더 (바뀌면 경고)
-SHARED = ("assets/", "_template/", "events.json", "CNAME", ".nojekyll", ".github/",
+SHARED = ("assets/", "events.json", "CNAME", ".nojekyll", ".github/",
           "tools/", "robots.txt", "index.html", "404.html", "CLAUDE.md")
 NEVER = ("CNAME", ".nojekyll")
 EVENT_REQUIRED = ["id", "type", "title", "start"]
+EVENT_TYPES = ("exhibition", "stage", "live")  # 새 양식을 만들면 여기에도 추가(CLAUDE.md §5)
 EVENT_TYPES_HINT = "README·CLAUDE.md §2 양식 표"
 DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 errors, warns = [], []
+_EVENT_PAGES = None
+
+
+def page_key(r):
+    """'ko/x/index.html' → 'x/index.html' (events.json page 칸과 비교용)"""
+    return re.sub(r"^ko/", "", r)
+
+
+def event_pages():
+    global _EVENT_PAGES
+    if _EVENT_PAGES is None:
+        try:
+            data = json.loads((ROOT / "events.json").read_text(encoding="utf-8"))
+            ev = data.get("events", []) if isinstance(data, dict) else data
+            _EVENT_PAGES = {str(e.get("page") or "").lstrip("/") for e in ev if e.get("end") or e.get("start")}
+        except Exception:  # noqa: BLE001
+            _EVENT_PAGES = set()
+    return _EVENT_PAGES
 GH = os.environ.get("GITHUB_ACTIONS") == "true"
 
 
@@ -163,10 +182,12 @@ def check_html(p, sitemap):
             has_until = True
             if not DATE.match(until.group(1)) and not is_template:
                 err(r, f"data-booking-until 날짜는 YYYY-MM-DD 형식이어야 합니다: {until.group(1)}")
-        if BOOKING_URL.search(tag) and not until and not any(c in tag for c in COMMON_BOOKING):
-            warn(r, "예약 링크에 행사 마지막 날(data-booking-until)이 없습니다. 행사가 끝나도 끝난 예약 화면이 그대로 보입니다(CLAUDE.md §9-1).")
-    if has_until and "/assets/booking.js" not in head:
-        err(r, "data-booking-until을 쓰는데 <head>에 /assets/booking.js 가 없습니다. 템플릿 줄을 그대로 넣어 주세요.")
+        if BOOKING_URL.search(tag) and not any(c in tag for c in COMMON_BOOKING):
+            has_until = True
+            if not until and page_key(r) not in event_pages():
+                warn(r, "행사 예약 링크가 있는데 events.json에 이 페이지(page) 줄이 없습니다. 행사가 끝나도 예약 버튼이 /meet/으로 안 바뀝니다(CLAUDE.md §9-1).")
+    if has_until and "/assets/ev-nav.js" not in head:
+        err(r, "행사 예약 링크를 쓰는데 <head>에 /assets/ev-nav.js 가 없습니다. 행사가 끝나도 예약 버튼이 안 바뀝니다. 틀 페이지 줄을 그대로 넣어 주세요.")
 
     # 문구
     text = re.sub(r"<(script|style)[\s\S]*?</\1>|<[^>]+>", " ", html)
@@ -213,10 +234,8 @@ def check_events_json():
         if page:
             if not (ROOT / page).exists():
                 err(where, f"page 경로에 파일이 없습니다: {page}")
-        tdir = ROOT / "_template"
-        kinds = {d.name for d in tdir.iterdir() if d.is_dir()} if tdir.exists() else set()
-        if kinds and e.get("type") and e["type"] not in kinds:
-            warn(where, f"type '{e['type']}'에 맞는 _template 폴더가 없습니다({EVENT_TYPES_HINT}). 새 양식이면 CLAUDE.md §5 절차를 따라 주세요.")
+        if e.get("type") and e["type"] not in EVENT_TYPES:
+            warn(where, f"type '{e['type']}'는 처음 보는 양식입니다({EVENT_TYPES_HINT}). 새 양식이면 CLAUDE.md §5 절차를 따라 주세요.")
 
 
 def check_files():
@@ -247,6 +266,8 @@ def check_changed(base):
         if code[0] in "DR" and old.endswith("index.html"):
             err(old, "공개된 페이지가 지워지거나 이름이 바뀌었습니다. 광고·메일 링크가 깨집니다. 먼저 마케팅팀에 확인해 주세요.")
         for f in {old, new}:
+            if code[0] == "A" and f.startswith("assets/media/"):
+                continue  # 새 이미지 추가는 기존 페이지에 영향 없음
             if f in NEVER:
                 err(f, "이 파일은 바꾸면 사이트 연결·설정이 깨집니다. 마케팅팀 확인 없이 바꾸지 않습니다.")
             elif f in SHARED or f.startswith(shared_dirs):

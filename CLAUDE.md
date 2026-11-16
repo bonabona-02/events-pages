@@ -182,7 +182,7 @@ events-pages/
   <a class="btn" href="https://calendar.app.google/..." data-booking-until="2026-12-10">Book a meeting</a>
   <iframe src="https://calendar.google.com/calendar/appointments/schedules/...?gv=true" data-booking-until="2026-12-10"></iframe>
   ```
-  `<head>`에 `<script src="/assets/booking.js" defer></script>` 가 있어야 합니다(템플릿에 들어 있음).
+  `<head>`에 `<script src="/assets/ev-nav.js" defer></script>` 가 있어야 합니다(틀 페이지에 들어 있음). 이 페이지가 events.json 에 `page` 로 등록돼 있어야 날짜를 찾습니다.
 - 행사가 끝난 뒤 미팅 버튼은 `/meet/` 으로 보냅니다. 상시 30분 미팅 = 공통 예약 링크 `https://calendar.app.google/oCAQAos8bo4denCr7` (crm@cubig.ai). 이 링크는 `/meet/` 페이지에 넣고, `/meet/`이 아직 없는 페이지는 이 링크를 바로 씁니다(마지막 날 적지 않음).
 - 사용자가 예약 링크를 주지 않았으면 `/meet/` 으로 연결해 두고 PR에 '행사 예약 링크 필요'라고 적습니다.
 
