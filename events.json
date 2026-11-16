@@ -82,7 +82,7 @@
       "photo": "/assets/media/press/public-ax-talk-concert.jpg",
       "src": "https://cubig.ai/ko/news/cubig-public-ax-talk-concert-sponsor/",
       "summary": "CUBIG is an official sponsor of the Agent Korea and Public AX Talk Concert in Seoul and shares two public-sector data cases.",
-      "summary_ko": "CUBIG은 Seoul에서 열리는 에이전트코리아 & 공공AX 토크콘서트를 공식 후원하고 공공기관 데이터 사례 두 건을 소개합니다.",
+      "summary_ko": "CUBIG은 서울에서 열리는 에이전트코리아 & 공공AX 토크콘서트를 공식 후원하고 공공기관 데이터 사례 두 건을 소개합니다.",
       "title_ko": "공공AX 토크콘서트 2026",
       "thumb": "/assets/media/press/public-ax-talk-concert-thumb.webp",
       "badge": "Official sponsor",
@@ -107,6 +107,7 @@
       "cc": "PT",
       "intl": true,
       "photo": "/websummit-2026/venue.jpg",
+      "credit": "Photo: Web Summit via Flickr, CC BY 2.0",
       "summary_ko": "CUBIG은 11월 9–12일 Lisbon MEO Arena·FIL에서 열린 Web Summit Lisbon 2026에 참가했습니다. AI Use Case 하나를 알려 주시면 CUBIG 팀이 30분 온라인 미팅으로 그 데이터를 함께 살펴봅니다.",
       "title_ko": "Web Summit Lisbon 2026에서 만난 CUBIG",
       "map": {
