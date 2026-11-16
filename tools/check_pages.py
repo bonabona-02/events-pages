@@ -28,6 +28,8 @@ OTHER_TRACKING = [
     (re.compile(r"snap\.licdn\.com|_linkedin_partner_id"), "LinkedIn 인사이트 태그"),
 ]
 PLACEHOLDERS = ["FOLDER-NAME", "EVENT TITLE", "ONE OR TWO SENTENCES", 'data-booking-until="YYYY-MM-DD"']
+# 상시 30분 미팅(crm@cubig.ai 공용 계정) — 마지막 날 없이 써도 됨
+COMMON_BOOKING = ("oCAQAos8bo4denCr7", "AcZssZ3o4cv2tXe0EboOtPoiHR8cImEPuUCo1bnxBBYTFL15V8ld8zTm4Ok6Zj4GxaQhCVQKKjO6c55J")
 BOOKING_URL = re.compile(r"https://(?:calendar\.app\.google|calendar\.google\.com/calendar/appointments)/", re.I)
 # 제품 이름 잘못된 표기 (대소문자만 다른 경우)
 WRONG_NAME = re.compile(r"\b(?:Syn" + r"Titan|SYN" + r"TITAN|Syn Titan)\b")  # 화면 글자만 검사(주소·파일 이름의 소문자는 정상)
@@ -161,7 +163,7 @@ def check_html(p, sitemap):
             has_until = True
             if not DATE.match(until.group(1)) and not is_template:
                 err(r, f"data-booking-until 날짜는 YYYY-MM-DD 형식이어야 합니다: {until.group(1)}")
-        if BOOKING_URL.search(tag) and not until:
+        if BOOKING_URL.search(tag) and not until and not any(c in tag for c in COMMON_BOOKING):
             warn(r, "예약 링크에 행사 마지막 날(data-booking-until)이 없습니다. 행사가 끝나도 끝난 예약 화면이 그대로 보입니다(CLAUDE.md §9-1).")
     if has_until and "/assets/booking.js" not in head:
         err(r, "data-booking-until을 쓰는데 <head>에 /assets/booking.js 가 없습니다. 템플릿 줄을 그대로 넣어 주세요.")

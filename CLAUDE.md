@@ -129,14 +129,14 @@ events-pages/
 
 ## 9-1. 미팅 예약 링크
 
-- 예약 링크는 **contact@cubig.ai 공용 계정에서 만든 Google 예약 페이지만** 씁니다. 개인 계정으로 만든 예약 링크는 넣지 않습니다(휴가·퇴사 시 끊김). 누구 계정 링크인지 링크만으로는 알 수 없으니, 사용자에게 확인하고 PR에 적습니다.
+- 예약 링크는 **crm@cubig.ai 공용 계정에서 만든 Google 예약 페이지만** 씁니다. 개인 계정으로 만든 예약 링크는 넣지 않습니다(휴가·퇴사 시 끊김). 누구 계정 링크인지 링크만으로는 알 수 없으니, 사용자에게 확인하고 PR에 적습니다.
 - 행사 예약 링크에는 행사 마지막 날을 같이 적습니다. 마지막 날이 지나면 `assets/booking.js` 가 버튼을 상시 30분 미팅 페이지(`/meet/`, 한국어 `/ko/meet/`)로 자동으로 바꾸고, 예약 화면(iframe)·부스 안내 칸은 숨깁니다.
   ```html
   <a class="btn" href="https://calendar.app.google/..." data-booking-until="2026-12-10">Book a meeting</a>
   <iframe src="https://calendar.google.com/calendar/appointments/schedules/...?gv=true" data-booking-until="2026-12-10"></iframe>
   ```
   `<head>`에 `<script src="/assets/booking.js" defer></script>` 가 있어야 합니다(템플릿에 들어 있음).
-- 행사가 끝난 뒤 미팅 버튼은 `/meet/` 으로 보냅니다. 상시 30분 미팅 예약 링크는 `/meet/` 페이지 한 곳에만 둡니다.
+- 행사가 끝난 뒤 미팅 버튼은 `/meet/` 으로 보냅니다. 상시 30분 미팅 = 공통 예약 링크 `https://calendar.app.google/oCAQAos8bo4denCr7` (crm@cubig.ai). 이 링크는 `/meet/` 페이지에 넣고, `/meet/`이 아직 없는 페이지는 이 링크를 바로 씁니다(마지막 날 적지 않음).
 - 사용자가 예약 링크를 주지 않았으면 `/meet/` 으로 연결해 두고 PR에 '행사 예약 링크 필요'라고 적습니다.
 
 ## 10. 공개 저장소 주의
@@ -160,4 +160,4 @@ events-pages/
 - 만든·바꾼 페이지 주소(공개 예정 주소), PR 링크
 - 검사 결과(`tools/check_pages.py` 오류 0건인지, 남은 경고)
 - 확인한 것(데스크톱·모바일·링크)과 확인 못 한 것
-- 사람이 결정해야 할 것(검색 노출, 숫자·고객·Gartner 사용, 예약 링크가 contact@ 계정 것인지, 새 추적 이벤트, 공통 파일 변경, 공홈 반영 필요 등)
+- 사람이 결정해야 할 것(검색 노출, 숫자·고객·Gartner 사용, 예약 링크가 crm@ 계정 것인지, 새 추적 이벤트, 공통 파일 변경, 공홈 반영 필요 등)

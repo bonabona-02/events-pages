@@ -1,7 +1,7 @@
 /*
   행사 예약 링크 자동 전환 (events.cubig.ai 공통, 수정은 마케팅팀 검토 후)
 
-  쓰는 법: 행사 예약 링크(contact@cubig.ai 공용 계정에서 만든 Google 예약 페이지)에
+  쓰는 법: 행사 예약 링크(crm@cubig.ai 공용 계정에서 만든 Google 예약 페이지)에
   행사 마지막 날을 같이 적습니다.
 
     <a class="btn" href="https://calendar.app.google/..." data-booking-until="2026-12-10">Book a meeting</a>
