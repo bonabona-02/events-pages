@@ -128,6 +128,12 @@ events-pages/
 | `stamp` · `stamp_city` | | 해외 도장 문구 (없으면 행사 이름 대문자) |
 | `booking` · `booking_label` · `booking_label_ko` | | 다가오는 행사 칸의 현장 미팅 버튼 |
 
+**최상위 `meet` 칸 (상시 30분 미팅 페이지 cubig.ai/events/meet/ 가 읽음)**: `events` 옆에 하나만 둡니다.
+`"meet": {"booking": "<구글 캘린더 예약 링크>", "from": "09:00", "to": "22:00", "weekdays_only": true}`
+- `booking`은 `https://calendar.google.com/calendar/appointments/…` 또는 `https://calendar.app.google/…`만. 그 밖의 값이면 공홈이 무시하고 기본값으로 그립니다.
+- `from`·`to`는 한국 시간 HH:MM, 구글 예약 페이지 설정과 같게. 바꾸면 15분 안에 공홈에 반영됩니다.
+- 행사별 현장 미팅 링크는 지금처럼 각 행사의 `booking`에 둡니다.
+
 ### 6-1. 자동으로 되는 것과 사람이 하는 것
 
 - **자동 (events.json 날짜 기준):**
