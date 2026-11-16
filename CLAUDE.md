@@ -124,7 +124,7 @@ events-pages/
 | `src` | | 보도자료 주소 |
 | `card_title` · `card_title_ko` | | 메인 카드의 짧은 이름 |
 | `badge` · `badge_ko` | | 지난 카드에 보일 짧은 표시 (예: `Booth #2032`, `Runner-up`) |
-| `map` | | 지도 위치 `{"x": 384, "y": 175.5, "label": "New York"}` (x·y는 `assets/media/art/world-dots.svg` 좌표). 같은 도시는 같은 label로 쓰면 한 점으로 묶임 |
+| `map` | | 지도 위치 `{"x": 384, "y": 175.5, "label": "New York", "label_ko": "뉴욕"}` (x·y는 `assets/media/art/world-dots.svg` 좌표). 같은 도시는 같은 label로 쓰면 한 점으로 묶임. `label_ko` = 한국어 허브에 보일 도시 이름 |
 | `stamp` · `stamp_city` | | 해외 도장 문구 (없으면 행사 이름 대문자) |
 | `booking` · `booking_label` · `booking_label_ko` | | 다가오는 행사 칸의 현장 미팅 버튼 |
 
