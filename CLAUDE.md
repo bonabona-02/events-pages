@@ -115,7 +115,7 @@ events-pages/
 | `place` | | 도시·장소 또는 방송 채널 |
 | `page` | | `폴더이름/index.html`, 페이지가 없으면 `null` |
 | `summary` · `summary_ko` | | 한 줄 소개 (상세 페이지 description과 같게) |
-| `thumb` · `photo` · `credit` | | 썸네일 · 대표 사진 · 사진 출처 표기 |
+| `thumb` · `photo` · `credit` | | 썸네일 · 대표 사진 · 사진 출처 표기. `thumb`는 photo 원본을 쓰지 말고 작은 사본(640px 폭 webp, 장당 60KB 안쪽, 같은 폴더 `<이름>-thumb.webp`)으로. 허브 카드·달력이 이 파일을 내려받는다. 만들기: `cwebp -q 75 -resize 640 0 원본.jpg -o 원본-thumb.webp` |
 | `video` · `with` · `length` | | On air: 영상 주소 · 함께한 사람·채널 · 길이 |
 | `kind` | | 세부 분류: `exhibition` · `pitch` · `award` · `live` |
 | `label` · `label_ko` · `date` | | 연혁에 보이는 이름 · 날짜 표기 (없으면 title·start로 만듦) |

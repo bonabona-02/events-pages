@@ -17,7 +17,7 @@
       "intl": true,
       "photo": "/assets/media/ai-summit-ny-2026/stage.jpg",
       "src": "https://newyork.theaisummit.com/",
-      "thumb": "/assets/media/ai-summit-ny-2026/stage.jpg",
+      "thumb": "/assets/media/ai-summit-ny-2026/stage-thumb.webp",
       "map": {
         "x": 384.0,
         "y": 175.5,
@@ -47,7 +47,7 @@
       "start": "2026-11-12",
       "place": "LinkedIn Live",
       "video": "https://www.youtube.com/watch?v=G9I1hFzdFPE",
-      "thumb": "/assets/media/collab/alex-genai-works.jpg",
+      "thumb": "/assets/media/collab/alex-genai-works-thumb.webp",
       "length": "26 min",
       "featured": true,
       "page": "alex-wang-2026/index.html",
@@ -84,7 +84,7 @@
       "summary": "CUBIG is an official sponsor of the Agent Korea and Public AX Talk Concert in Seoul and shares two public-sector data cases.",
       "summary_ko": "CUBIG은 Seoul에서 열리는 에이전트코리아 & 공공AX 토크콘서트를 공식 후원하고 공공기관 데이터 사례 두 건을 소개합니다.",
       "title_ko": "공공AX 토크콘서트 2026",
-      "thumb": "/assets/media/press/public-ax-talk-concert.jpg",
+      "thumb": "/assets/media/press/public-ax-talk-concert-thumb.webp",
       "badge": "Official sponsor",
       "badge_ko": "공식 후원",
       "card_title_ko": "에이전트코리아 & 공공AX 토크콘서트"
@@ -98,7 +98,7 @@
       "place": "Lisbon, MEO Arena & FIL",
       "summary": "30-minute working sessions on one AI use case.",
       "page": "websummit-2026/index.html",
-      "thumb": "/websummit-2026/venue.jpg",
+      "thumb": "/websummit-2026/venue-thumb.webp",
       "kind": "exhibition",
       "label": "Web Summit Lisbon 2026",
       "label_ko": "Web Summit Lisbon 2026 부스",
@@ -135,7 +135,7 @@
       "place": "Las Vegas, The Venetian Expo",
       "summary": "Booth #2032. From pilot to production.",
       "page": "oracle-ai-world-2026/index.html",
-      "thumb": "/assets/media/yt/4ghxMxe-LLM.jpg",
+      "thumb": "/assets/media/yt/4ghxMxe-LLM-thumb.webp",
       "video": "https://www.youtube.com/watch?v=4ghxMxe-LLM",
       "kind": "exhibition",
       "label": "Oracle AI World 2026 · Booth #2032",
@@ -173,7 +173,7 @@
       "start": "2026-10-21",
       "place": "Lights On Data",
       "video": "https://www.youtube.com/watch?v=pL2--7_63-k",
-      "thumb": "/assets/media/yt/pL2--7_63-k.jpg",
+      "thumb": "/assets/media/yt/pL2--7_63-k-thumb.webp",
       "length": "37 min",
       "page": "lights-on-data-2026/index.html",
       "kind": "live",
@@ -198,7 +198,7 @@
       "start": "2026-09-30",
       "place": "The Ravit Show",
       "video": "https://www.youtube.com/watch?v=VF6woajs03Y",
-      "thumb": "/assets/media/yt/VF6woajs03Y.jpg",
+      "thumb": "/assets/media/yt/VF6woajs03Y-thumb.webp",
       "length": "32 min",
       "page": "ravit-show-2026/index.html",
       "kind": "live",
@@ -232,7 +232,7 @@
       "summary": "Industry analyst firm Intellyx named CUBIG a winner of its 2026 Digital Innovator Award.",
       "summary_ko": "업계 분석 기관 Intellyx가 CUBIG을 2026 Digital Innovator Award 수상 기업으로 선정했습니다.",
       "title_ko": "2026 Intellyx Digital Innovator Award 수상",
-      "thumb": "/assets/media/press/intellyx-digital-innovator-2026.jpg",
+      "thumb": "/assets/media/press/intellyx-digital-innovator-2026-thumb.webp",
       "badge": "Award",
       "badge_ko": "수상",
       "card_title": "Intellyx Digital Innovator",
@@ -258,7 +258,7 @@
       "summary": "CUBIG finished 2nd of 12 finalists at T Challenge 2026, run by Deutsche Telekom and T-Mobile US, with LLM Capsule.",
       "summary_ko": "CUBIG은 Deutsche Telekom과 T-Mobile US가 함께 연 T Challenge 2026에서 LLM Capsule로 결선 12개 팀 중 2위를 했습니다.",
       "title_ko": "T Challenge 2026 준우승",
-      "thumb": "/assets/media/photos/t-challenge-2026/01.jpg",
+      "thumb": "/assets/media/photos/t-challenge-2026/01-thumb.webp",
       "stamp": "DEUTSCHE TELEKOM",
       "stamp_city": "T CHALLENGE",
       "badge": "Runner-up",
@@ -284,7 +284,7 @@
       "summary": "CUBIG ran Booth M43 at Korea Nara Jangteo Expo 2026 at KINTEX, Goyang.",
       "summary_ko": "CUBIG은 Goyang KINTEX에서 열린 2026 나라장터 엑스포에서 M43 부스를 운영했습니다.",
       "title_ko": "2026 나라장터 엑스포",
-      "thumb": "/assets/media/photos/narajangteo-expo-2026/01.jpg"
+      "thumb": "/assets/media/photos/narajangteo-expo-2026/01-thumb.webp"
     },
     {
       "id": "mwc-4yfn-2026",
@@ -306,7 +306,7 @@
       "summary": "CUBIG joined 4YFN at MWC Barcelona 2026 as part of the SKT participant group.",
       "summary_ko": "CUBIG은 SKT 참가기업으로 MWC Barcelona 2026의 4YFN에 참여했습니다.",
       "title_ko": "MWC / 4YFN 2026 참가",
-      "thumb": "/assets/media/photos/mwc-4yfn-2026/01.jpg",
+      "thumb": "/assets/media/photos/mwc-4yfn-2026/01-thumb.webp",
       "stamp": "MWC · 4YFN"
     },
     {
@@ -327,7 +327,7 @@
       "summary": "CUBIG was selected for the 2026 Emerging AI+X Top 100, run by the Korea Artificial Intelligence Industry Association.",
       "summary_ko": "CUBIG은 한국인공지능산업협회가 선정하는 2026 Emerging AI+X Top 100에 이름을 올렸습니다.",
       "title_ko": "Emerging AI+X Top 100 2026",
-      "thumb": "/assets/media/press/emerging-ai-x-top100-2026.jpg"
+      "thumb": "/assets/media/press/emerging-ai-x-top100-2026-thumb.webp"
     },
     {
       "id": "tech-biz-ewha-2025",
@@ -345,7 +345,7 @@
       "summary": "CUBIG took part in Tech-Biz EHWA, an Ewha Womans University event in Seoul.",
       "summary_ko": "CUBIG은 Seoul에서 열린 이화여대 Tech-Biz EHWA 행사에 참가했습니다.",
       "title_ko": "Tech-Biz EHWA 2025",
-      "thumb": "/assets/media/photos/tech-biz-ewha-2025/01.jpg"
+      "thumb": "/assets/media/photos/tech-biz-ewha-2025/01-thumb.webp"
     },
     {
       "id": "nh-open-business-day-2025",
@@ -364,7 +364,7 @@
       "summary": "CUBIG joined NH Open Business Day 2025 at Conrad Seoul in Yeouido.",
       "summary_ko": "CUBIG은 여의도 Conrad Seoul에서 열린 NH 오픈비즈니스데이 2025에 참가했습니다.",
       "title_ko": "NH 오픈비즈니스데이 2025 참가",
-      "thumb": "/assets/media/photos/nh-open-business-day-2025/01.jpg"
+      "thumb": "/assets/media/photos/nh-open-business-day-2025/01-thumb.webp"
     },
     {
       "id": "ai-collabo-open-ground-2025",
@@ -384,7 +384,7 @@
       "summary": "CUBIG was one of six startups selected for the 2025 AI Collabo Open Ground and was matched with DB Insurance on LLM Capsule.",
       "summary_ko": "CUBIG은 2025 AI 콜라보 오픈그라운드에 선정된 스타트업 6곳 중 하나로, DB Insurance와 LLM Capsule 협업을 진행합니다.",
       "title_ko": "AI 콜라보 오픈그라운드 2025",
-      "thumb": "/assets/media/press/ai-collabo-open-ground-2025.jpg"
+      "thumb": "/assets/media/press/ai-collabo-open-ground-2025-thumb.webp"
     },
     {
       "id": "singapore-fintech-festival-2025",
@@ -405,7 +405,7 @@
       "summary": "CUBIG exhibited at Singapore FinTech Festival 2025 with support from Seoul Fintech Lab.",
       "summary_ko": "CUBIG은 Seoul Fintech Lab 지원으로 Singapore FinTech Festival 2025에 전시했습니다.",
       "title_ko": "Singapore FinTech Festival 2025 참가",
-      "thumb": "/assets/media/photos/sff-2025/01.jpg",
+      "thumb": "/assets/media/photos/sff-2025/01-thumb.webp",
       "map": {
         "x": 1095.3,
         "y": 360.7,
@@ -437,7 +437,7 @@
       "summary": "CUBIG showed LLM Capsule and Syntitan at NAVER's annual conference DAN25 in Seoul.",
       "summary_ko": "CUBIG은 NAVER 연간 컨퍼런스 DAN25에서 LLM Capsule과 Syntitan을 소개했습니다.",
       "title_ko": "NAVER DAN25",
-      "thumb": "/assets/media/photos/naver-dan25/01.jpg"
+      "thumb": "/assets/media/photos/naver-dan25/01-thumb.webp"
     },
     {
       "id": "smart-city-expo-world-congress-2025",
@@ -458,7 +458,7 @@
       "summary": "CUBIG showed Syntitan at Smart City Expo World Congress 2025 in Barcelona.",
       "summary_ko": "CUBIG은 Barcelona에서 열린 Smart City Expo World Congress 2025에서 Syntitan을 소개했습니다.",
       "title_ko": "Smart City Expo World Congress 2025 참가",
-      "thumb": "/assets/media/photos/scewc-2025/01.jpg",
+      "thumb": "/assets/media/photos/scewc-2025/01-thumb.webp",
       "map": {
         "x": 688.7,
         "y": 172.3,
@@ -493,7 +493,7 @@
       "summary": "CUBIG exhibited at Japan IT Week in Tokyo in the KDB NextONE pavilion.",
       "summary_ko": "CUBIG은 KDB NextONE pavilion으로 Tokyo에서 열린 Japan IT Week에 전시했습니다.",
       "title_ko": "Japan IT Week 2025 참가",
-      "thumb": "/assets/media/photos/japan-it-week-2025/01.jpg",
+      "thumb": "/assets/media/photos/japan-it-week-2025/01-thumb.webp",
       "map": {
         "x": 1238.8,
         "y": 199.2,
@@ -527,7 +527,7 @@
       "summary": "CUBIG pitched at Plug in Osaka, a Japan market entry program it joined through Busan Center for Creative Economy and Innovation.",
       "summary_ko": "CUBIG은 부산창조경제혁신센터를 통해 일본 진출 프로그램 Plug in Osaka에 참여해 피칭했습니다.",
       "title_ko": "Plug in Osaka 2025 피칭",
-      "thumb": "/assets/media/photos/plug-in-osaka-2025/01.jpg",
+      "thumb": "/assets/media/photos/plug-in-osaka-2025/01-thumb.webp",
       "map": {
         "x": 1222.0,
         "y": 203.8,
@@ -560,7 +560,7 @@
       "summary": "CUBIG exhibited at Smart Life Week 2025 at COEX, Seoul.",
       "summary_ko": "CUBIG은 Seoul COEX에서 열린 2025 스마트라이프위크에 참가했습니다.",
       "title_ko": "2025 스마트라이프위크",
-      "thumb": "/assets/media/photos/smart-life-week-2025/01.jpg"
+      "thumb": "/assets/media/photos/smart-life-week-2025/01-thumb.webp"
     },
     {
       "id": "kicxup-global-2025",
@@ -579,7 +579,7 @@
       "summary": "CUBIG exhibited at KICXUP Global 2025 and joined 1:1 meetups through the KICXUP Challenge.",
       "summary_ko": "CUBIG은 KICXUP Global 2025에 전시하고 킥스업 챌린지 1:1 밋업에 참여했습니다.",
       "title_ko": "KICXUP Global 2025",
-      "thumb": "/assets/media/photos/kicxup-global-2025/01.jpg"
+      "thumb": "/assets/media/photos/kicxup-global-2025/01-thumb.webp"
     },
     {
       "id": "aws-tech-summit-seoul-2025",
@@ -597,7 +597,7 @@
       "summary": "CUBIG exhibited for one day at AWS Tech Summit 2025 in Seoul.",
       "summary_ko": "CUBIG은 Seoul에서 열린 AWS Tech Summit 2025에 하루 동안 전시했습니다.",
       "title_ko": "AWS Tech Summit 2025",
-      "thumb": "/assets/media/photos/aws-summit-seoul-2025/01.jpg"
+      "thumb": "/assets/media/photos/aws-summit-seoul-2025/01-thumb.webp"
     },
     {
       "id": "smart-work-contact-center-expo-2025",
@@ -617,7 +617,7 @@
       "summary": "CUBIG exhibited with Seoul AI Hub at Smart Work & Contact Center Expo 2025 at COEX, Seoul.",
       "summary_ko": "CUBIG은 Seoul COEX에서 열린 2025 스마트워크&컨택센터 엑스포에 서울AI허브와 함께 참가했습니다.",
       "title_ko": "2025 스마트워크&컨택센터 엑스포",
-      "thumb": "/assets/media/photos/swcc-2025/01.jpg"
+      "thumb": "/assets/media/photos/swcc-2025/01-thumb.webp"
     },
     {
       "id": "startup-world-cup-seoul-2025",
@@ -637,7 +637,7 @@
       "summary": "CUBIG won the Seoul regional final of Startup World Cup 2025 and advanced to the Grand Finale in Silicon Valley.",
       "summary_ko": "CUBIG은 Startup World Cup 2025 서울 예선에서 우승해 Silicon Valley 본선에 진출했습니다.",
       "title_ko": "Startup World Cup Seoul 2025 우승",
-      "thumb": "/assets/media/press/startup-world-cup-seoul-2025.jpg",
+      "thumb": "/assets/media/press/startup-world-cup-seoul-2025-thumb.webp",
       "badge": "Winner",
       "badge_ko": "우승",
       "card_title": "Startup World Cup Seoul",
@@ -660,7 +660,7 @@
       "summary": "CUBIG exhibited at NextRise 2025 in Seoul at Booth A-002 in Hall B.",
       "summary_ko": "CUBIG은 Seoul에서 열린 NextRise 2025에서 Hall B A-002 부스를 운영했습니다.",
       "title_ko": "NextRise 2025",
-      "thumb": "/assets/media/photos/nextrise-2025/01.jpg"
+      "thumb": "/assets/media/photos/nextrise-2025/01-thumb.webp"
     },
     {
       "id": "human-technology-awards-2025",
@@ -680,7 +680,7 @@
       "summary": "CUBIG's DTS received the User Excellence Award at the 10th Human Technology Awards.",
       "summary_ko": "CUBIG의 DTS가 제10회 휴먼테크놀로지 어워드에서 사용자 우수상을 받았습니다.",
       "title_ko": "휴먼테크놀로지 어워드 2025",
-      "thumb": "/assets/media/press/human-technology-award-2025.jpg"
+      "thumb": "/assets/media/press/human-technology-award-2025-thumb.webp"
     },
     {
       "id": "vivatech-2025",
@@ -701,7 +701,7 @@
       "summary": "CUBIG exhibited at VivaTech 2025 in Paris at a Korea Startup booth.",
       "summary_ko": "CUBIG은 Paris에서 열린 VivaTech 2025에 Korea Startup 부스로 전시했습니다.",
       "title_ko": "VivaTech 2025 참가",
-      "thumb": "/assets/media/photos/vivatech-2025/01.jpg",
+      "thumb": "/assets/media/photos/vivatech-2025/01-thumb.webp",
       "map": {
         "x": 689.4,
         "y": 137.1,
@@ -734,7 +734,7 @@
       "summary": "CUBIG received the AI Medical Innovation Award at the 2025 AI Excellence Summit during AI EXPO KOREA 2025 in Seoul.",
       "summary_ko": "CUBIG은 AI EXPO KOREA 2025 기간에 열린 2025 AI 엑설런스 서밋에서 AI 의료 혁신상을 받았습니다.",
       "title_ko": "AI EXPO KOREA 2025",
-      "thumb": "/assets/media/press/ai-expo-korea-2025.jpg"
+      "thumb": "/assets/media/press/ai-expo-korea-2025-thumb.webp"
     },
     {
       "id": "k-startup-grand-finals-2024",
@@ -753,7 +753,7 @@
       "summary": "CUBIG received an excellence award in the startup league at the K-Startup Grand Finals in December 2024.",
       "summary_ko": "CUBIG은 2024년 12월 K-Startup 창업리그 본선에서 우수상을 받았습니다.",
       "title_ko": "K-Startup 왕중왕전 2024",
-      "thumb": "/assets/media/photos/k-startup-2024/01.jpg"
+      "thumb": "/assets/media/photos/k-startup-2024/01-thumb.webp"
     },
     {
       "id": "comeup-2024",
@@ -773,7 +773,7 @@
       "summary": "CUBIG was named one of the Top 10 startups at COMEUP Stars 2024, selected from 1,208 teams.",
       "summary_ko": "CUBIG은 COMEUP Stars 2024에서 1,208개 팀 중 Top 10에 선정됐습니다.",
       "title_ko": "COMEUP 2024 Top 10",
-      "thumb": "/assets/media/press/comeup-2024.jpg"
+      "thumb": "/assets/media/press/comeup-2024-thumb.webp"
     },
     {
       "id": "information-security-innovation-award-2024",
@@ -793,7 +793,7 @@
       "summary": "CUBIG's DTS received an award at the 2024 Information Security Product Innovation Awards.",
       "summary_ko": "CUBIG의 DTS가 2024 정보보호 제품 혁신대상에서 수상했습니다.",
       "title_ko": "정보보호 제품 혁신대상 2024",
-      "thumb": "/assets/media/press/infosec-innovation-award-2024.jpg"
+      "thumb": "/assets/media/press/infosec-innovation-award-2024-thumb.webp"
     },
     {
       "id": "ai-security-day-2024",
@@ -813,7 +813,7 @@
       "summary": "CUBIG won Best of Demo Day at the 2024 AI Security Day, hosted by the Ministry of Science and ICT and KISA.",
       "summary_ko": "CUBIG은 과학기술정보통신부와 KISA가 주최한 2024 AI 시큐리티 데이에서 Best of Demo Day를 받았습니다.",
       "title_ko": "AI 시큐리티 데이 2024",
-      "thumb": "/assets/media/press/ai-security-day-2024.jpg"
+      "thumb": "/assets/media/press/ai-security-day-2024-thumb.webp"
     },
     {
       "id": "nextrise-2024",
@@ -833,7 +833,7 @@
       "summary": "CUBIG received the Global Innovator Award at NextRise 2024 Seoul, hosted by KITA and KDB.",
       "summary_ko": "CUBIG은 KITA와 KDB가 주최한 NextRise 2024 Seoul에서 Global Innovator Award를 받았습니다.",
       "title_ko": "NextRise 2024 Global Innovator Award",
-      "thumb": "/assets/media/press/nextrise-2024.jpg"
+      "thumb": "/assets/media/press/nextrise-2024-thumb.webp"
     }
   ],
   "channel": "https://www.youtube.com/@cubig_corp"
