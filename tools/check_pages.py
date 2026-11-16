@@ -185,7 +185,7 @@ def check_html(p, sitemap):
         if BOOKING_URL.search(tag) and not any(c in tag for c in COMMON_BOOKING):
             has_until = True
             if not until and page_key(r) not in event_pages():
-                warn(r, "행사 예약 링크가 있는데 events.json에 이 페이지(page) 줄이 없습니다. 행사가 끝나도 예약 버튼이 /meet/으로 안 바뀝니다(CLAUDE.md §9-1).")
+                warn(r, "행사 예약 링크가 있는데 events.json에 이 페이지(page) 줄이 없습니다. 행사가 끝나도 예약 버튼이 미팅 신청 페이지로 안 바뀝니다(CLAUDE.md §9-1).")
     if has_until and "/assets/ev-nav.js" not in head:
         err(r, "행사 예약 링크를 쓰는데 <head>에 /assets/ev-nav.js 가 없습니다. 행사가 끝나도 예약 버튼이 안 바뀝니다. 틀 페이지 줄을 그대로 넣어 주세요.")
 

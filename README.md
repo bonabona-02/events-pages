@@ -59,7 +59,7 @@ events-pages/
 │   ├─ index.html         ← 페이지 본문 (파일 이름은 꼭 index.html)
 │   └─ hero.webp          ← 이 페이지에서만 쓰는 이미지
 ├─ ko/websummit-2026/     ← 같은 페이지의 한국어판
-├─ meet/                  ← 미팅 예약 페이지
+├─ meet/                  ← 옛 미팅 주소(cubig.ai/events/meet/ 로 넘김)
 ├─ tools/check_pages.py   ← 검사 도구
 └─ .claude/               ← 팀 공용 Claude Code 설정 (모두 같은 순서로 일하게 함)
 ```
@@ -241,8 +241,8 @@ LinkedIn 게시: https://events.cubig.ai/webinar-1201/?utm_source=linkedin&utm_m
   - 이름: `[Event] 행사이름 · 부스 미팅`
   - 공동 호스트: 그 행사 담당자. '빈 시간 확인'에는 꼭 필요한 1~2명 캘린더만 연결합니다(연결한 캘린더가 모두 비어야 시간이 열림)
   - 예약 가능 기간: 행사 날짜로 설정
-- 페이지에는 그 행사 예약 링크를 바로 넣습니다. 행사가 끝나면 **events.json 의 end(없으면 start) 다음 날부터** 버튼이 상시 30분 미팅 페이지(`/meet/`)로 자동으로 바뀌고, 예약 화면은 숨겨집니다(`assets/ev-nav.js`). 버튼에 따로 날짜를 적지 않아도 됩니다. 다른 날짜로 끊고 싶을 때만 `data-booking-until="YYYY-MM-DD"`를 적습니다.
-- 상시 30분 미팅(공통 예약 링크): https://calendar.app.google/oCAQAos8bo4denCr7 — `/meet/` 페이지에 들어갑니다. 행사가 끝나면 버튼이 이쪽으로 바뀝니다.
+- 페이지에는 그 행사 예약 링크를 바로 넣습니다. 행사가 끝나면 **events.json 의 end(없으면 start) 다음 날부터** 버튼이 상시 30분 미팅 페이지(`https://cubig.ai/events/meet/`)로 자동으로 바뀌고, 예약 화면은 숨겨집니다(`assets/ev-nav.js`). 버튼에 따로 날짜를 적지 않아도 됩니다. 다른 날짜로 끊고 싶을 때만 `data-booking-until="YYYY-MM-DD"`를 적습니다.
+- 상시 30분 미팅(공통 예약 링크): https://calendar.app.google/oCAQAos8bo4denCr7 — 미팅 신청 페이지(`https://cubig.ai/events/meet/`, 공홈 테마)에 들어갑니다. 행사가 끝나면 버튼이 이쪽으로 바뀝니다.
 - 예약은 HubSpot에 자동으로 들어가지 않습니다(캘린더 연결 안 함). 예약자 정보는 crm@ 캘린더 예약 일정에서 확인합니다.
 
 ---

@@ -34,7 +34,7 @@ events-pages/
 ├─ (틀 페이지)            새 페이지는 같은 양식의 기존 페이지를 복사 (§2)
 ├─ 폴더이름/index.html     페이지 하나 (영어)
 ├─ ko/폴더이름/index.html  같은 페이지의 한국어판
-├─ meet/                  미팅 예약 페이지
+├─ meet/                  옛 미팅 주소 → cubig.ai/events/meet/ 로 넘기기만 함(2026-11-16 이동)
 ├─ tools/check_pages.py   검사 도구 (GitHub 자동 검사와 같음)
 └─ .claude/               팀 공용 Claude Code 설정 (/event-page 스킬, 금지 동작, 미리보기)
 ```
@@ -177,14 +177,14 @@ events-pages/
 ## 9-1. 미팅 예약 링크
 
 - 예약 링크는 **crm@cubig.ai 공용 계정에서 만든 Google 예약 페이지만** 씁니다. 개인 계정으로 만든 예약 링크는 넣지 않습니다(휴가·퇴사 시 끊김). 누구 계정 링크인지 링크만으로는 알 수 없으니, 사용자에게 확인하고 PR에 적습니다.
-- 행사 예약 링크는 events.json 에서 그 페이지 행사의 end(없으면 start)를 찾아, 그다음 날부터 상시 30분 미팅 페이지(`/meet/`, 한국어 `/ko/meet/`)로 자동으로 바뀝니다(`assets/ev-nav.js`, 공통 crm@ 링크는 제외). 다른 날짜로 끊고 싶을 때만 아래처럼 `data-booking-until`을 적습니다(적으면 이 날짜가 우선).
+- 행사 예약 링크는 events.json 에서 그 페이지 행사의 end(없으면 start)를 찾아, 그다음 날부터 상시 30분 미팅 페이지(`https://cubig.ai/events/meet/`, 한국어 `https://cubig.ai/ko/events/meet/`)로 자동으로 바뀝니다(`assets/ev-nav.js`, 공통 crm@ 링크는 제외). 다른 날짜로 끊고 싶을 때만 아래처럼 `data-booking-until`을 적습니다(적으면 이 날짜가 우선).
   ```html
   <a class="btn" href="https://calendar.app.google/..." data-booking-until="2026-12-10">Book a meeting</a>
   <iframe src="https://calendar.google.com/calendar/appointments/schedules/...?gv=true" data-booking-until="2026-12-10"></iframe>
   ```
   `<head>`에 `<script src="/assets/ev-nav.js" defer></script>` 가 있어야 합니다(틀 페이지에 들어 있음). 이 페이지가 events.json 에 `page` 로 등록돼 있어야 날짜를 찾습니다.
-- 행사가 끝난 뒤 미팅 버튼은 `/meet/` 으로 보냅니다. 상시 30분 미팅 = 공통 예약 링크 `https://calendar.app.google/oCAQAos8bo4denCr7` (crm@cubig.ai). 이 링크는 `/meet/` 페이지에 넣고, `/meet/`이 아직 없는 페이지는 이 링크를 바로 씁니다(마지막 날 적지 않음).
-- 사용자가 예약 링크를 주지 않았으면 `/meet/` 으로 연결해 두고 PR에 '행사 예약 링크 필요'라고 적습니다.
+- 행사가 끝난 뒤 미팅 버튼은 `https://cubig.ai/events/meet/`(한국어 `https://cubig.ai/ko/events/meet/`)으로 보냅니다. 이 미팅 신청 페이지는 공홈(cubig.ai) 테마에 있고, 저장소의 `meet/`·`ko/meet/`는 옛 주소로 들어온 사람을 넘기기만 합니다. 상시 30분 미팅 = 공통 예약 링크 `https://calendar.app.google/oCAQAos8bo4denCr7` (crm@cubig.ai, 마지막 날 적지 않음).
+- 사용자가 예약 링크를 주지 않았으면 `https://cubig.ai/events/meet/`(한국어 `https://cubig.ai/ko/events/meet/`)으로 연결해 두고 PR에 '행사 예약 링크 필요'라고 적습니다.
 
 ## 10. 공개 저장소 주의
 

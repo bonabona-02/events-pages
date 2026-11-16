@@ -43,7 +43,7 @@ gtag('config', 'G-8MRD9BZ1VJ');
        accent    : #6A4FD0 (the only accent colour)
        keyVisual : /assets/media/oracle-2026/floor-2026.webp (+ credit line in hero)
        map       : inline SVG in the "Find us" section (simplified, not official)
-       booking   : /meet/ after the event (data-cta on <body>); boothBooking = event-days calendar link
+       booking   : cubig.ai/events/meet/ after the event (data-cta on <body>); boothBooking = event-days calendar link
      ============================================================ -->
 <script>
 window.EVENT = {
@@ -61,7 +61,7 @@ window.EVENT = {
   end: "2026-10-28",            /* last day, local date */
   area: "",                     /* hall / area: unknown, so the row is hidden */
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Venetian+Expo+Las+Vegas",
-  booking: "/meet/",            /* after the event: online meeting page (original after-event URL was empty) */
+  booking: "https://cubig.ai/events/meet/",            /* after the event: online meeting page (original after-event URL was empty) */
   boothBooking: "https://calendar.app.google/oCAQAos8bo4denCr7"   /* during-event calendar link, kept for reuse */
 };
 document.addEventListener("DOMContentLoaded", function () {
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 .cap,.ec-st,.eb-k{gap:0!important}
 </style>
 </head>
-<body data-cta="/meet/" data-cta-label="Book a meeting" data-lang-toggle>
+<body data-cta="https://cubig.ai/events/meet/" data-cta-label="Book a meeting" data-lang-toggle>
 <main class="dt">
 
   <!-- 1 · HERO (visual-led). Job: what CUBIG brings, and the event recap. -->
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div>
           <p class="lead">Thanks for visiting Booth #2032.<br>Syntitan validates data for each use case and keeps the version behind each result.</p>
           <div class="actions">
-            <a class="btn" data-ev-href="booking" href="/meet/">Book a meeting</a>
+            <a class="btn" data-ev-href="booking" href="https://cubig.ai/events/meet/">Book a meeting</a>
             <a class="link" href="https://syntitan.ai/" target="_blank" rel="noopener">Try Syntitan free</a>
           </div>
         </div>
@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="ceo"><img src="/assets/media/ho-bae-face.jpg" alt="Ho Bae"><div><b>Ho Bae</b><span>Co-founder and CEO, CUBIG</span><span>Professor, Ewha Womans University · 20+ papers, incl. NeurIPS, ICLR, AAAI</span></div></div>
         <h2>Missed us in Las Vegas? Book 30 minutes.</h2>
         <p>Bring one AI use case that worked as a pilot but hasn't gone live yet. We'll map the use case, the blocker and the next proof point with you.</p>
-        <div class="actions"><a class="btn light" data-ev-href="booking" href="/meet/">Book a meeting</a></div>
+        <div class="actions"><a class="btn light" data-ev-href="booking" href="https://cubig.ai/events/meet/">Book a meeting</a></div>
       </div>
       <div>
         <dl class="facts"><dt>Event</dt><dd>Oracle AI World 2026</dd><dt>Dates</dt><dd>Oct 26–28, 2026</dd><dt>Format</dt><dd>30-minute video call</dd><dt>Email</dt><dd><a href="mailto:contact@cubig.ai?subject=Call%20after%20Oracle%20AI%20World%202026">contact@cubig.ai</a></dd></dl>
