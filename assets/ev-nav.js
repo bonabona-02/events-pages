@@ -34,8 +34,31 @@
   }
   function el(h){ var t=document.createElement('div'); t.innerHTML=h.trim(); return t.firstChild; }
 
+  /* 현장 미팅 버튼 자동 종료: 버튼에 마지막 날을 따로 안 적어도, events.json 에서 이 페이지 행사의
+     end(없으면 start)를 찾아 그다음 날부터 상시 미팅 페이지(/meet/, /ko/meet/)로 바꿉니다.
+     버튼에 data-booking-until 이 있으면 그 날짜를 우선합니다. 공통 미팅 링크(crm@)는 건드리지 않습니다. */
+  function autoBookingEnd(ev){
+    var m=document.querySelector('meta[name=ev-path]');
+    var path=(m?'/'+m.content:location.pathname).replace(/^\/ko\//,'/').replace(/index\.html$/,'');
+    var me=ev.filter(function(e){ return e.page && '/'+e.page.replace(/^\//,'').replace(/index\.html$/,'')===path; })[0];
+    var COMMON=/oCAQAos8bo4denCr7|AcZssZ3o4cv2tXe0EboOtPoiHR8cImEPuUCo1bnxBBYTFL15V8ld8zTm4Ok6Zj4GxaQhCVQKKjO6c55J/;
+    var BOOK=/calendar\.app\.google\/|calendar\.google\.com\/calendar\/appointments\//;
+    var t=new Date(); t.setHours(0,0,0,0);
+    var meet=m?(KO?'ko/meet/index.html':'meet/index.html'):(KO?'/ko/meet/':'/meet/');
+    document.querySelectorAll('a[href],iframe[src],iframe[data-src]').forEach(function(el){
+      var u=el.getAttribute('href')||el.getAttribute('src')||el.getAttribute('data-src')||'';
+      if(!BOOK.test(u)||COMMON.test(u)) return;
+      var until=el.getAttribute('data-booking-until')||(me&&(me.end||me.start));
+      if(!until) return;
+      if(t<=d(until)) return;
+      if(el.tagName==='A'){ el.href=el.getAttribute('data-booking-after')||meet; el.removeAttribute('target'); el.setAttribute('data-booking-ended',''); }
+      else { el.hidden=true; el.style.display='none'; }
+    });
+  }
+
   function mount(data){
     var body=document.body, ev=(data&&data.events)||[];
+    autoBookingEnd(ev);
     var cta=body.getAttribute('data-cta'), ctaLabel=body.getAttribute('data-cta-label')||(KO?'온라인 미팅 신청하기':'Book a meeting');
     if(KO && cta==='/meet/') cta='/ko/meet/'; // 한국어 페이지 미팅 링크는 /ko/meet/
 

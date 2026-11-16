@@ -73,7 +73,7 @@ events-pages/
 2. 제목·설명·canonical·OG·본문·사진을 그 행사 내용으로 모두 바꿉니다. 틀 행사의 이름·날짜가 남아 있지 않은지 확인합니다.
 3. `events.json` 에 한 줄 추가합니다(§6). 상세 페이지가 아직 없으면 `page` 없이 먼저 넣어도 됩니다. 메인에는 누를 수 없는 카드로 보입니다.
 4. `sitemap.xml` 에 영어·한국어 주소를 추가합니다.
-5. 현장 미팅 버튼이 있으면 행사 마지막 날을 같이 적습니다(§9-1).
+5. 현장 미팅 버튼은 events.json 의 end 날짜가 지나면 자동으로 상시 미팅으로 바뀝니다. 따로 날짜를 적지 않아도 됩니다(§9-1).
 6. 사진이 없으면 §6-2 조건으로 찾습니다.
 7. §0의 4~7번(검사 → 미리보기 → PR).
 8. 메인 배너를 이 행사로 바꿀지 사용자(행사 담당자)에게 묻고, 바꾸기로 하면 현세님께 반영을 요청하라고 알려 줍니다.
@@ -177,7 +177,7 @@ events-pages/
 ## 9-1. 미팅 예약 링크
 
 - 예약 링크는 **crm@cubig.ai 공용 계정에서 만든 Google 예약 페이지만** 씁니다. 개인 계정으로 만든 예약 링크는 넣지 않습니다(휴가·퇴사 시 끊김). 누구 계정 링크인지 링크만으로는 알 수 없으니, 사용자에게 확인하고 PR에 적습니다.
-- 행사 예약 링크에는 행사 마지막 날을 같이 적습니다. 마지막 날이 지나면 `assets/booking.js` 가 버튼을 상시 30분 미팅 페이지(`/meet/`, 한국어 `/ko/meet/`)로 자동으로 바꾸고, 예약 화면(iframe)·부스 안내 칸은 숨깁니다.
+- 행사 예약 링크는 events.json 에서 그 페이지 행사의 end(없으면 start)를 찾아, 그다음 날부터 상시 30분 미팅 페이지(`/meet/`, 한국어 `/ko/meet/`)로 자동으로 바뀝니다(`assets/ev-nav.js`, 공통 crm@ 링크는 제외). 다른 날짜로 끊고 싶을 때만 아래처럼 `data-booking-until`을 적습니다(적으면 이 날짜가 우선).
   ```html
   <a class="btn" href="https://calendar.app.google/..." data-booking-until="2026-12-10">Book a meeting</a>
   <iframe src="https://calendar.google.com/calendar/appointments/schedules/...?gv=true" data-booking-until="2026-12-10"></iframe>
