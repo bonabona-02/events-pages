@@ -86,7 +86,7 @@ def build(e, ko, events):
     # 버튼: 다가오는 행사에 예약 링크가 있으면 예약이 먼저(끝나면 ev-nav.js 가 미팅 페이지로 바꿈), 그다음 src
     acts = []
     if e.get('booking'):
-        acts.append(f'<a class="d-btn" href="{esc(e["booking"])}" target="_blank" rel="noopener">{esc(pick(e, "booking_label", ko) or t("book", ko))}</a>')
+        acts.append(f'<a class="d-btn" href="{esc(e["booking"])}" target="_blank" rel="noopener" data-booking-after="hide">{esc(pick(e, "booking_label", ko) or t("book", ko))}</a>')
     if e.get('src'):
         cls = 'd-btn d-btn--line' if acts else 'd-btn'
         acts.append(f'<a class="{cls}" href="{esc(e["src"])}" target="_blank" rel="noopener">{src_label(e["src"], ko)} ↗</a>')
@@ -144,6 +144,7 @@ def build(e, ko, events):
 <link rel="stylesheet" href="/assets/ev.css">
 <link rel="stylesheet" href="/assets/ev-pages.css">
 <link rel="stylesheet" href="/assets/site/cubig-site.css">
+<link rel="stylesheet" href="/assets/site/ev-site.css">
 <link rel="stylesheet" href="/assets/ev-basic.css">
 <script src="/assets/site/cubig-site.js" defer></script>
 <script src="/assets/ev-nav.js" defer></script>

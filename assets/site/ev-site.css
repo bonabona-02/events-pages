@@ -1,0 +1,19 @@
+/* 공홈 머리글·바닥글(cubig-site.*)을 쓰는 행사 페이지 공통 — 머리글 아래 여백 + 행사 서브배너(ev-nav.js 가 그림).
+   기본 틀(ev-basic.css)과 큰 행사 페이지(ev-detail.css: Web Summit·Oracle)가 같이 씀. 2026-11-17 */
+:root{--sub-line:#dedee4;--sub-vio:#6a4fd0;--sub-vio-d:#4b33b5;--sub-ink:#16161a;--sub-ease:cubic-bezier(.22,1,.36,1)}
+/* 공홈 머리글은 화면 위에 고정(64px) → 본문을 그만큼 내림 */
+html.has-site-chrome body{padding-top:64px;}
+/* ── 서브배너: 행사 · 이 행사 이름 · 미팅 신청. 공홈 머리글과 같은 폭(로고·버튼 줄에 맞춤).
+      히어로를 지나야 공홈 머리글 아래로 내려옴(첫 화면 머리줄 두 겹 ❌) ── */
+.ev-sub{position:fixed;top:64px;left:0;right:0;z-index:150;background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--sub-line);transform:translateY(calc(-100% - 64px));transition:transform .35s var(--sub-ease);visibility:hidden}
+.ev-sub.is-on{transform:none;visibility:visible}
+.ev-sub .wrap{max-width:var(--container-max,1280px);padding:0 var(--container-px,32px);height:52px;display:flex;align-items:center;gap:12px}
+.ev-sub__home{font-size:14px;font-weight:500;color:var(--sub-vio);text-decoration:none;white-space:nowrap}
+.ev-sub__home:hover{color:var(--sub-vio-d)}
+.ev-sub__sep{color:#c9c9d2;font-size:13px}
+.ev-sub__t{min-width:0;font-size:14px;font-weight:500;color:var(--sub-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev-sub .right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.ev-sub .btn{height:36px;padding:0 14px;border-radius:6px;font-size:14px}
+@media (max-width:599px){ .ev-sub .btn{display:none} }
+
+@media (prefers-reduced-motion:reduce){ .ev-sub{transition:none} }

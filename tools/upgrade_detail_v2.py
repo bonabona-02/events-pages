@@ -17,7 +17,7 @@ from bs4 import BeautifulSoup
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HEAD_OLD = '<link rel="stylesheet" href="/assets/ev-pages.css">\n<script src="/assets/ev-nav.js" defer></script>'
-HEAD_NEW = ('<link rel="stylesheet" href="/assets/ev-pages.css">\n<link rel="stylesheet" href="/assets/site/cubig-site.css">\n'
+HEAD_NEW = ('<link rel="stylesheet" href="/assets/ev-pages.css">\n<link rel="stylesheet" href="/assets/site/cubig-site.css">\n<link rel="stylesheet" href="/assets/site/ev-site.css">\n'
             '<link rel="stylesheet" href="/assets/ev-basic.css">\n<script src="/assets/site/cubig-site.js" defer></script>\n'
             '<script src="/assets/ev-nav.js" defer></script>')
 # 허브(공홈 테마 content/pages/events.php)와 같은 표

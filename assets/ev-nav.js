@@ -36,7 +36,8 @@
 
   /* 현장 미팅 버튼 자동 종료: 버튼에 마지막 날을 따로 안 적어도, events.json 에서 이 페이지 행사의
      end(없으면 start)를 찾아 그다음 날부터 상시 미팅 페이지(cubig.ai/events/meet/, 한국어 cubig.ai/ko/events/meet/)로 바꿉니다.
-     버튼에 data-booking-until 이 있으면 그 날짜를 우선합니다. 공통 미팅 링크(crm@)는 건드리지 않습니다. */
+     버튼에 data-booking-until 이 있으면 그 날짜를 우선합니다. 공통 미팅 링크(crm@)는 건드리지 않습니다.
+     data-booking-after="hide" 면 바꾸지 않고 숨깁니다(옆에 온라인 미팅 링크가 따로 있는 기본 양식 페이지 — 2026-11-17 현세). */
   function autoBookingEnd(ev){
     var m=document.querySelector('meta[name=ev-path]');
     var path=(m?'/'+m.content:location.pathname).replace(/^\/ko\//,'/').replace(/index\.html$/,'');
@@ -51,7 +52,7 @@
       var until=el.getAttribute('data-booking-until')||(me&&(me.end||me.start));
       if(!until) return;
       if(t<=d(until)) return;
-      if(el.tagName==='A'){ el.href=el.getAttribute('data-booking-after')||meet; el.removeAttribute('target'); el.setAttribute('data-booking-ended',''); }
+      if(el.tagName==='A' && el.getAttribute('data-booking-after')!=='hide'){ el.href=el.getAttribute('data-booking-after')||meet; el.removeAttribute('target'); el.setAttribute('data-booking-ended',''); }
       else { el.hidden=true; el.style.display='none'; }
     });
   }

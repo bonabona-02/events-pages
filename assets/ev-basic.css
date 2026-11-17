@@ -13,24 +13,10 @@
 }
 @media (max-width:759px){ :root{ --h-py:88px; } }
 
-/* 공홈 머리글은 화면 위에 고정(64px) → 본문을 그만큼 내림 */
-html.has-site-chrome body{padding-top:64px;background:var(--h-paper)}
+html.has-site-chrome body{background:var(--h-paper)}
 /* 본문 폭 = 허브와 같은 1200 (양옆 40, 좁은 화면 20) */
 .wrap{max-width:1280px;padding:0 40px}
 @media (max-width:759px){ .wrap{padding:0 20px} }
-
-/* ── 서브배너: 행사 · 이 행사 이름 · 미팅 신청. 공홈 머리글과 같은 폭(로고·버튼 줄에 맞춤).
-      히어로를 지나야 공홈 머리글 아래로 내려옴(첫 화면 머리줄 두 겹 ❌) ── */
-.ev-sub{position:fixed;top:64px;left:0;right:0;z-index:150;background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--h-line-2);transform:translateY(calc(-100% - 64px));transition:transform .35s var(--h-ease);visibility:hidden}
-.ev-sub.is-on{transform:none;visibility:visible}
-.ev-sub .wrap{max-width:var(--container-max,1280px);padding:0 var(--container-px,32px);height:52px;display:flex;align-items:center;gap:12px}
-.ev-sub__home{font-size:14px;font-weight:500;color:var(--vio-d);text-decoration:none;white-space:nowrap}
-.ev-sub__home:hover{color:var(--vio-dd)}
-.ev-sub__sep{color:#c9c9d2;font-size:13px}
-.ev-sub__t{min-width:0;font-size:14px;font-weight:500;color:var(--h-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ev-sub .right{margin-left:auto;display:flex;align-items:center;gap:8px}
-.ev-sub .btn{height:36px;padding:0 14px;border-radius:6px;font-size:14px}
-@media (max-width:599px){ .ev-sub .btn{display:none} }
 
 /* ── 히어로: 글 + 사진 두 칸, 아래 정보 줄 ── */
 .d-hero{background:radial-gradient(46% 380px at 80% 0%,rgba(138,119,224,.12),transparent 70%),var(--h-paper);padding:56px 0 72px;border-bottom:1px solid var(--h-line-2)}
@@ -50,7 +36,7 @@ html.has-site-chrome body{padding-top:64px;background:var(--h-paper)}
 .d-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:6px;background:var(--h-ink);color:#fff;font-size:15px;font-weight:500;letter-spacing:-.01em;text-decoration:none;white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.12);transition:opacity .2s var(--h-ease),transform .2s var(--h-ease)}
 .d-btn:hover{opacity:.85;transform:translateY(-1px)}
 .d-btn--line{background:#fff;color:var(--h-ink);box-shadow:inset 0 0 0 1px var(--h-line-2)}
-.d-btn + .d-btn{margin-left:-12px}
+.d-btn:not([hidden]) + .d-btn{margin-left:-12px}
 .d-go{font-size:15px;font-weight:500;color:var(--h-ink-2);text-decoration:none;white-space:nowrap}
 .d-go i{display:inline-block;font-style:normal;transition:transform .25s var(--h-ease)}
 .d-go:hover{color:var(--vio-d)}
@@ -138,5 +124,5 @@ a.ev-it:hover .ev-it__go i{transform:translateX(3px)}
   .d-acts{gap:12px 20px}
 }
 @media (prefers-reduced-motion:reduce){
-  .ev-sub,.ev-it__im img,.ev-it__go i,.more .link::after,.d-btn,.d-hero__ph img,.d-go i{transition:none}
+  .ev-it__im img,.ev-it__go i,.more .link::after,.d-btn,.d-hero__ph img,.d-go i{transition:none}
 }
