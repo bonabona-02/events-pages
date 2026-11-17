@@ -30,6 +30,7 @@ description: events.cubig.ai 행사·On air 페이지를 만들거나 고칠 때
 - [ ] `python3 tools/check_pages.py` 오류 0건
 - [ ] `python3 -m http.server 8090` (저장소 루트) → 데스크톱 1440px·모바일 375px 확인, 스크린샷
 - [ ] 문구: 제품 이름 표기, 금지 표현, 영어 문구에 엠대시·큰따옴표 없음 (CLAUDE.md §11)
+- [ ] 한국어판: CLAUDE.md §11-1 표기표·라벨·시제·영어판과 같은 사실
 - [ ] 커밋 → `git push -u origin <브랜치>` → `gh pr create` (본문 = PR 체크리스트 + 스크린샷)
 
 ## 5. 사용자에게 보고 (CLAUDE.md §12)
