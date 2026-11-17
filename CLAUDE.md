@@ -29,6 +29,8 @@ events-pages/
 │  ├─ ev-nav.js           머리글·메뉴·바닥글
 │  ├─ ev-detail.css       양식: On the floor 큰 페이지(Web Summit·Oracle)
 │  ├─ ev-pages.css        양식: On stage·On air·미팅·하위 상세 페이지
+│  ├─ ev-basic.css        짧은 기록형 상세 페이지 v2(허브 룩) — ev-pages.css 뒤에 읽음
+│  ├─ site/               cubig.ai 공홈 머리글·바닥글 복사본(cubig-site.css·js) — tools/sync_site_chrome.py 가 만듦, 손으로 고치지 않음
 │  ├─ history.js          events.json 을 읽어 연혁·전체 목록을 그림
 │  └─ media/              여러 페이지가 같이 쓰는 이미지
 ├─ (틀 페이지)            새 페이지는 같은 양식의 기존 페이지를 복사 (§2)
@@ -36,6 +38,8 @@ events-pages/
 ├─ ko/폴더이름/index.html  같은 페이지의 한국어판
 ├─ meet/                  옛 미팅 주소 → cubig.ai/events/meet/ 로 넘기기만 함(2026-11-16 이동)
 ├─ tools/check_pages.py   검사 도구 (GitHub 자동 검사와 같음)
+├─ tools/sync_site_chrome.py  공홈 머리글·바닥글이 바뀌면 다시 돌림(로컬 공홈 8080 또는 --base https://cubig.ai)
+├─ tools/upgrade_detail_v2.py 옛 짧은 기록형 페이지를 v2 로 바꿈(<main> 안만 고침, 다른 행사 카드는 events.json 에서)
 └─ .claude/               팀 공용 Claude Code 설정 (/event-page 스킬, 금지 동작, 미리보기)
 ```
 
@@ -63,9 +67,11 @@ events-pages/
 | `stage` | On stage / 수상·무대 | 피칭, 발표, 데모데이, 수상, 선정 | `t-challenge-2026/` |
 | `live` | On air | 크리에이터 라이브·인터뷰·방송 영상 | `alex-wang-2026/` |
 
-- 하위 상세 페이지 구조: 본문 → "What CUBIG brought / CUBIG이 보여준 것" 목록 → 한눈에 보기 상자 → 다른 행사.
+- 짧은 기록형 상세 페이지 구조(v2, 2026-11-17): 공홈 머리글 → 히어로(왼쪽 종류·제목·한 줄 설명·버튼 / 오른쪽 대표 사진) → 가로 정보 줄(`dl.d-facts`) → 본문(첫 문단 크게, 소제목 왼쪽·"CUBIG이 보여준 것" 목록 오른쪽) → 다른 행사(허브와 같은 카드) → 공홈 바닥글. 행사 머리글은 히어로를 지나면 나오는 서브배너(행사 · 행사 이름 · 미팅 신청)입니다.
+- 버튼 줄(`.d-acts`): 검정 버튼 = 보도자료·영상 등 대표 링크 하나, 선 버튼 = 다른 링크, 글자 링크 = 온라인 미팅 신청. 같은 링크를 두 번 걸지 않습니다.
+- 다른 행사 카드의 이름·날짜·장소 문구는 허브와 같아야 합니다. 직접 쓰지 말고 링크만 바꾼 뒤 `python3 tools/upgrade_detail_v2.py <폴더이름>` 으로 다시 만듭니다.
 - 어느 양식인지 애매하면 사용자에게 묻습니다. 기존 양식으로 안 되면 §5(새 양식)입니다.
-- 세 양식 모두 공통 바탕(`ev.css`)과 머리글·바닥글(`ev-nav.js`)을 같이 씁니다.
+- 세 양식 모두 공통 바탕(`ev.css`)과 `ev-nav.js`를 같이 씁니다. 짧은 기록형은 공홈 머리글·바닥글(`assets/site/`)도 씁니다(큰 행사 페이지 Web Summit·Oracle은 아직 옛 머리글).
 
 ## 3. 새 페이지 만들기
 
