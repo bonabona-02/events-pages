@@ -1,0 +1,116 @@
+/* 행사 상세 '기본 틀' v2 (2026-11-17 시안 · T Challenge 한 장 먼저) — cubig.ai/events 허브와 같은 룩.
+   기준 = 공홈 테마 assets/css/events.css(허브): 토큰·위계·카드(.ev-it)·알약(.ev-st)·여백 128/88·모서리 12/16.
+   ev.css·ev-pages.css 뒤에 읽는다. 공홈 머리글·바닥글(assets/site/cubig-site.*)과 같이 쓴다.
+   알약 규칙: 종류를 가르는 분류에만, 한 줄에 하나(히어로 = 종류·시기 / 카드 = 상태). */
+
+:root{
+  --h-ink:#16161a; --h-ink-2:#3a3a42; --h-mute:#6b6b76; --h-soft:#84848f;
+  --h-line:#e9e9ee; --h-line-2:#dedee4; --h-paper:#fafafa;
+  --vio:#8a77e0; --vio-d:#6a4fd0; --vio-dd:#4b33b5; --vio-l:#b9acf5; --vio-t:#f4f1fe; --vio-m:#e6e0fb;
+  --h-r:12px; --h-r-l:16px; --h-py:128px; --h-ease:cubic-bezier(.22,1,.36,1);
+}
+@media (max-width:759px){ :root{ --h-py:88px; } }
+
+/* 공홈 머리글은 화면 위에 고정(64px) → 본문을 그만큼 내림 */
+html.has-site-chrome body{padding-top:64px;background:var(--h-paper)}
+/* 본문 폭 = 허브와 같은 1200 (양옆 40, 좁은 화면 20) */
+.wrap{max-width:1280px;padding:0 40px}
+@media (max-width:759px){ .wrap{padding:0 20px} }
+
+/* ── 서브배너: 행사 이름 + 미팅 신청 + 행사 메뉴. 히어로를 지나야 공홈 머리글 아래로 내려옴(첫 화면 머리줄 두 겹 ❌) ── */
+.ev-sub{position:fixed;top:64px;left:0;right:0;z-index:150;background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--h-line-2);transform:translateY(calc(-100% - 64px));transition:transform .35s var(--h-ease);visibility:hidden}
+.ev-sub.is-on{transform:none;visibility:visible}
+.ev-sub .wrap{height:52px;display:flex;align-items:center;gap:12px}
+.ev-sub__home{font-size:14px;font-weight:500;color:var(--vio-d);text-decoration:none;white-space:nowrap}
+.ev-sub__home:hover{color:var(--vio-dd)}
+.ev-sub__sep{color:#c9c9d2;font-size:13px}
+.ev-sub__t{min-width:0;font-size:14px;font-weight:500;color:var(--h-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev-sub .right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.ev-sub .btn{height:36px;padding:0 14px;border-radius:6px;font-size:14px}
+.ev-sub .burger{width:36px;height:36px;border:1px solid var(--h-line-2);background:#fff}
+@media (max-width:599px){ .ev-sub .btn{display:none} }
+
+/* ── 히어로 ── */
+.d-hero{background:radial-gradient(46% 380px at 80% 0%,rgba(138,119,224,.12),transparent 70%),var(--h-paper);padding:64px 0 88px;border-bottom:1px solid var(--h-line-2)}
+.crumb{font-size:13px;color:var(--h-soft);gap:8px;align-items:center}
+.crumb a{color:var(--h-mute);transition:color .2s}
+.crumb a:hover{color:var(--vio-d)}
+.crumb span{color:#c9c9d2}
+.crumb span:last-child{color:var(--h-soft)}
+.d-hero .tg{display:inline-flex;align-items:center;height:30px;margin-top:48px;padding:0 14px;border-radius:999px;border:1px solid #e2e3e8;background:#fff;color:#525459;font-size:13px;line-height:1}
+.d-hero h1{margin-top:20px;max-width:900px;font-size:clamp(34px,3.6vw,48px);line-height:1.12;letter-spacing:-.03em;font-weight:500;color:var(--h-ink)}
+:lang(ko) .d-hero h1{line-height:1.24}
+.d-hero .with{margin-top:18px;font-size:17px;line-height:1.6;color:var(--h-mute)}
+
+/* ── 본문 + 옆 칸 ── */
+.d-body{grid-template-columns:minmax(0,1fr) 360px;gap:80px;padding:88px 0 var(--h-py)}
+.d-main{max-width:720px}
+.d-main p{font-size:17px;line-height:1.75;color:var(--h-ink-2);margin:0 0 20px}
+.d-main h2{margin:56px 0 16px;padding-bottom:14px;border-bottom:1px solid var(--h-line-2);font-size:22px;line-height:1.3;letter-spacing:-.015em;font-weight:500;color:var(--h-ink)}
+.d-main ol{border-top:0;display:grid;gap:2px}
+.d-main ol li{grid-template-columns:28px minmax(0,1fr);gap:14px;padding:10px 0;border-bottom:0;font-size:16px;line-height:1.6;color:var(--h-ink-2)}
+.d-main ol li span{display:grid;place-items:center;width:28px;height:28px;margin-top:-1px;border-radius:50%;background:var(--vio-t);color:var(--vio-dd);font-size:11.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.d-main .src{font-size:13px;color:var(--h-soft)}
+
+.d-side{top:140px;gap:16px}   /* 공홈 머리글 64 + 서브배너 52 + 24 */
+/* 사진 링크 = 허브 카드(.ev-it)와 같은 부품: 위 16:9 사진, 아래 글 */
+.watch-mini{background:#fff;border:1px solid var(--h-line-2);border-radius:var(--h-r);overflow:hidden;transition:border-color .25s var(--h-ease)}
+.watch-mini:hover{border-color:#c4c4cf}
+.watch-mini .th{border:0;border-radius:0;transition:transform .5s var(--h-ease)}
+.watch-mini b{margin:0;padding:14px 18px 16px;font-size:14px;font-weight:500;color:var(--h-ink)}
+.watch-mini:hover b{text-decoration:none;color:var(--vio-d)}
+/* 정보 판 = 허브 미팅 페이지 정보 표(.ev-facts)와 같은 줄 표 */
+.box{border:1px solid var(--h-line-2);border-radius:var(--h-r);padding:18px 22px 6px;background:#fff}
+.box h4{margin:0 0 4px;font-size:13px;font-weight:500;color:var(--vio-d)}
+.box dl{grid-template-columns:84px minmax(0,1fr);gap:0;font-size:14px;line-height:1.5}
+.box dt,.box dd{padding:11px 0;border-bottom:1px solid var(--h-line)}
+.box dt{color:var(--h-soft);padding-right:12px}
+.box dd{font-weight:500;color:var(--h-ink)}
+.box dt:last-of-type,.box dd:last-of-type{border-bottom:0}
+.links-list{gap:0;padding-bottom:6px}
+.links-list a{padding:11px 0;border-bottom:1px solid var(--h-line);font-weight:500;color:var(--h-ink);transition:color .2s}
+.links-list a span{color:var(--h-soft)}
+.links-list a:hover{color:var(--vio-d)}
+
+/* ── 다른 행사 = 허브 묶음과 같은 머리 + 카드 ── */
+.more{border-top:1px solid var(--h-line-2);padding:var(--h-py) 0;background:#fff}
+.more .p-head{align-items:flex-end;margin-bottom:40px}
+.more .p-head h2{font-size:clamp(30px,3.1vw,44px);line-height:1.12;letter-spacing:-.03em;font-weight:500;color:var(--h-ink)}
+:lang(ko) .more .p-head h2{line-height:1.24}
+.more .link{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 16px;border:1px solid var(--h-line-2);border-radius:8px;background:#fff;font-size:14px;font-weight:500;color:var(--h-ink);white-space:nowrap;transition:border-color .2s}
+.more .link::after{content:"→";transition:transform .25s var(--h-ease)}
+.more .link:hover{text-decoration:none;border-color:#c4c4cf}
+.more .link:hover::after{transform:translateX(3px)}
+.ev-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.ev-it{display:flex;flex-direction:column;background:#fff;border:1px solid var(--h-line-2);border-radius:var(--h-r);overflow:hidden;color:var(--h-ink);text-decoration:none;transition:border-color .25s var(--h-ease)}
+a.ev-it:hover{border-color:#c4c4cf}
+.ev-it__im{aspect-ratio:16/9;overflow:hidden;background:var(--vio-m)}
+.ev-it__im img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--h-ease)}
+a.ev-it:hover .ev-it__im img{transform:scale(1.03)}
+.ev-it__b{display:flex;flex-direction:column;align-items:flex-start;gap:6px;flex:1;padding:16px 18px 20px}
+.ev-st{display:inline-flex;align-items:center;height:24px;padding:0 10px;margin-bottom:4px;border-radius:999px;background:#f1f1f3;color:var(--h-ink-2);font-size:12px;font-weight:500;font-style:normal;line-height:1;white-space:nowrap}
+.ev-st.is-up{background:var(--vio-d);color:#fff}
+.ev-st.is-now{background:var(--h-ink);color:#fff}
+.ev-it__n{margin:0;font-size:18px;line-height:1.3;letter-spacing:-.01em;font-weight:500;color:var(--h-ink)}
+.ev-it__m{font-size:13px;line-height:1.45;color:var(--h-soft)}
+.ev-it__go{margin-top:auto;padding-top:10px;font-size:14px;font-weight:500;color:var(--h-ink)}
+.ev-it__go i{display:inline-block;font-style:normal;transition:transform .25s var(--h-ease)}
+a.ev-it:hover .ev-it__go i{transform:translateX(3px)}
+
+@media (max-width:1024px){
+  .d-body{grid-template-columns:minmax(0,1fr);gap:48px}
+  .ev-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:759px){
+  .d-hero{padding:40px 0 64px}
+  .d-hero .tg{margin-top:36px}
+  .d-body{padding:64px 0 var(--h-py)}
+  .d-main p{font-size:16px}
+  .more .p-head{flex-direction:row;align-items:flex-end;justify-content:space-between}
+}
+@media (max-width:599px){
+  .ev-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  .ev-sub,.ev-it__im img,.ev-it__go i,.more .link::after{transition:none}
+}

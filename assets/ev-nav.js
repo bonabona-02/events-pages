@@ -73,6 +73,7 @@
 
     // 머리글: cubig.ai 공홈과 같은 메뉴 + 행사 목록(햄버거)
     var C=KO?'https://cubig.ai/ko/':'https://cubig.ai/';
+    var SITE=document.getElementById('site-header'); // 공홈 머리글(assets/site/cubig-site.js)이 있으면 = 아래 머리글 대신 서브배너, 바닥글은 공홈 것
     var NAV=KO?[['syntitan/','플랫폼'],['llmcapsule/','역량'],['proof/','신뢰 증거'],['blogs/','자료'],['company/','회사']]
               :[['syntitan/','Platform'],['llmcapsule/','Capabilities'],['proof/','Proof'],['blogs/','Learn'],['company/','Company']];
     var hd=el('<header class="ev-hd"><div class="wrap">'+
@@ -82,7 +83,19 @@
       '<div class="right">'+langToggle()+'<a class="ev-contact" href="'+C+'contact/">'+(KO?'문의하기':'Contact')+'</a>'+(cta?'<a class="btn" href="'+cta+'">'+ctaLabel+'</a>':'')+
       '<button class="burger" aria-label="'+(KO?'행사 메뉴 열기':'Open events menu')+'" aria-expanded="false"><i></i></button></div></div></header>');
     var strip=document.querySelector('.ev-strip');
-    body.insertBefore(hd, strip?strip.nextSibling:body.firstChild);
+    if(SITE){
+      // 서브배너(2026-11-17 현세 「이벤트 헤더 자체를 서브배너로」): 행사 · 이 행사 이름 · 미팅 신청 · 행사 메뉴.
+      // 히어로를 지나야 공홈 머리글 아래로 내려온다(첫 화면에 머리줄 두 겹 ❌).
+      hd=el('<div class="ev-sub"><div class="wrap">'+
+        '<a class="ev-sub__home" href="'+C+'events/">'+(KO?'행사':'Events')+'</a><span class="ev-sub__sep" aria-hidden="true">/</span><span class="ev-sub__t"></span>'+
+        '<div class="right">'+(cta?'<a class="btn" href="'+cta+'">'+ctaLabel+'</a>':'')+
+        '<button class="burger" aria-label="'+(KO?'행사 메뉴 열기':'Open events menu')+'" aria-expanded="false"><i></i></button></div></div></div>');
+      var h1=document.querySelector('main h1'); hd.querySelector('.ev-sub__t').textContent=h1?h1.textContent:'';
+      SITE.parentNode.insertBefore(hd, SITE.nextSibling);
+      var hero=document.querySelector('.d-hero')||document.querySelector('main > section');
+      var subOn=function(){ var on=!hero||hero.getBoundingClientRect().bottom<=64; hd.classList.toggle('is-on',on); };
+      window.addEventListener('scroll',subOn,{passive:true}); window.addEventListener('resize',subOn); subOn();
+    } else body.insertBefore(hd, strip?strip.nextSibling:body.firstChild);
 
     // 햄버거 메뉴: 종류별로 묶고, 각 묶음 안은 최신순
     var groups='';
@@ -117,7 +130,7 @@
       '<div><h4>'+(KO?'연결':'Connect')+'</h4><a href="'+C+'contact/">'+(KO?'문의하기':'Contact')+'</a>'+SOC.map(function(l){return '<a href="'+l[0]+'" target="_blank" rel="noopener">'+l[1]+'</a>';}).join('')+'</div>';
     var info=KO?'<p>CUBIG LTD (영국) · 회사 번호: NI735459 · 21 Arthur Street, Belfast, Antrim, United Kingdom, BT1 4GA</p><p>주식회사 큐빅 (CUBIG Corp., 대한민국) · 사업자 등록 번호: 133-81-45679 · 전자상거래 등록: 2023-서울-서초-2822 · 대한민국 경기도 성남시 분당구 정자일로 95, 네이버1784 4층</p><p>대표전화 <a href="tel:+82-2-582-1113">02-582-1113</a> · 이메일 <a href="mailto:contact@cubig.ai">contact@cubig.ai</a></p>'
               :'<p>CUBIG LTD (United Kingdom) · Company Number: NI735459 · 21 Arthur Street, Belfast, Antrim, United Kingdom, BT1 4GA</p><p>CUBIG CORP (Republic of Korea) · Business Registration: 133-81-45679 · E-Commerce Registration: 2023-Seoul-Seocho-2822 · 4F, NAVER 1784, 95, Jeongjail-ro, Bundang-gu, Seongnam-si, Gyeonggi-do, Republic of Korea</p><p>Tel <a href="tel:+82-2-582-1113">+82-2-582-1113</a> · Email <a href="mailto:contact@cubig.ai">contact@cubig.ai</a></p>';
-    body.appendChild(el('<footer class="ev-ft"><div class="wrap"><div class="ft-cols">'+cols+'</div><div class="ft-info">'+info+'</div>'+
+    if(!SITE) body.appendChild(el('<footer class="ev-ft"><div class="wrap"><div class="ft-cols">'+cols+'</div><div class="ft-info">'+info+'</div>'+
       '<div class="ft-bot"><span>© '+new Date().getFullYear()+' CUBIG Corp. All Rights Reserved.</span><nav aria-label="'+(KO?'법적 고지':'Legal')+'"><a href="'+C+'cookie-policy/">'+(KO?'쿠키 정책':'Cookie Policy')+'</a><a href="'+C+'privacy-policy/">'+(KO?'개인정보 처리방침':'Privacy Policy')+'</a></nav></div></div></footer>'));
 
     document.dispatchEvent(new CustomEvent('ev:data',{detail:data}));
