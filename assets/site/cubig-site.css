@@ -42,12 +42,12 @@
   --font-primary: "Manrope", "Pretendard Variable", "Pretendard", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: "Manrope", "Pretendard Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Manrope", "Pretendard Variable", "Pretendard", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --fs-hero: 36px;
-  --fs-h1: 32px;
-  --fs-h2: 28px;
-  --fs-h3: 22px;
-  --fs-h4: 18px;
-  --fs-body-lg: 17px;
+  --fs-hero: 60px;
+  --fs-h1: 48px;
+  --fs-h2: 36px;
+  --fs-h3: 28px;
+  --fs-h4: 20px;
+  --fs-body-lg: 18px;
   --fs-body: 16px;
   --fs-small: 14px;
   --fs-caption: 14px;
@@ -55,12 +55,12 @@
   --fs-2xs: 12px;
   --fs-3xs: 11px;
   --fs-micro: 10px;
-  --fs-section-title: 32px;
-  --fs-section-title-lg: 36px;
+  --fs-section-title: 40px;
+  --fs-section-title-lg: 56px;
   --fw-section-title: 600;
-  --ls-section-title: -0.9px;
+  --ls-section-title: -1.0px;
   --lh-section-title: 1.08;
-  --fs-section-subtitle: 16px;
+  --fs-section-subtitle: 18px;
   --fw-section-subtitle: 400;
   --ls-section-subtitle: 0;
   --lh-section-subtitle: 1.5;
@@ -71,12 +71,12 @@
   --ls-display-lg: -1.2px;
   --ls-display-md: -0.9px;
   --ls-body: 0;
-  --section-py: 80px;
-  --section-py-sm: 56px;
+  --section-py: 128px;
+  --section-py-sm: 80px;
   --container-max: 1280px;
-  --container-px: 20px;
-  --gap-lg: 40px;
-  --gap-md: 24px;
+  --container-px: 32px;
+  --gap-lg: 56px;
+  --gap-md: 32px;
   --gap-sm: 24px;
   --gap-xs: 16px;
   --gap-xxs: 8px;
@@ -88,6 +88,11 @@
   --r-pill: 9999px;
   --transition: 0.18s ease;
   --transition-slow: 0.32s ease;
+}
+
+/* ── from theme variables.css ── */
+@media (max-width: 768px) {
+:root {--fs-hero: 36px; --fs-h1: 32px; --fs-h2: 28px; --fs-h3: 22px; --fs-h4: 18px; --fs-body: 16px; --fs-body-lg: 17px; --fs-section-title: 32px; --fs-section-title-lg: 36px; --fs-section-subtitle: 16px; --ls-section-title: -0.9px; --section-py: 80px; --section-py-sm: 56px; --container-px: 20px; --gap-lg: 40px; --gap-md: 24px;}
 }
 
 /* ── from theme base.css ── */

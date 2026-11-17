@@ -131,13 +131,18 @@ def resolve_urls(css, file_dir):
     return re.sub(r'url\(([^)]*)\)', fix, css)
 
 
-def walk(rules, soup_roots, vars_out, keyframes, used_anims):
+def walk(rules, soup_roots, vars_out, keyframes, used_anims, top=True):
     out = []
     for r in rules:
         if r.type == 'qualified-rule':
             prelude = tinycss2.serialize(r.prelude).strip()
             body = tinycss2.serialize(r.content).strip()
             if re.fullmatch(r':root|html|:root,\s*html', prelude):
+                if not top:  # @media 안의 :root 변수는 그 @media 안에 그대로 둔다(밖으로 합치면 화면 크기별 값이 덮어씀)
+                    vs = [d for d in tinycss2.parse_blocks_contents(r.content, skip_whitespace=True, skip_comments=True) if d.type == 'declaration' and d.name.startswith('--')]
+                    if vs:
+                        out.append(':root {' + ' '.join('%s: %s;' % (d.name, tinycss2.serialize(d.value).strip()) for d in vs) + '}')
+                    continue
                 for decl in tinycss2.parse_blocks_contents(r.content, skip_whitespace=True, skip_comments=True):
                     if decl.type == 'declaration' and decl.name.startswith('--'):
                         vars_out[decl.name] = tinycss2.serialize(decl.value).strip() + (' !important' if decl.important else '')
@@ -151,7 +156,7 @@ def walk(rules, soup_roots, vars_out, keyframes, used_anims):
             kw = r.lower_at_keyword
             prelude = tinycss2.serialize(r.prelude).strip()
             if kw in ('media', 'supports', 'container') and r.content is not None:
-                inner = walk(tinycss2.parse_rule_list(r.content, skip_whitespace=True, skip_comments=True), soup_roots, vars_out, keyframes, used_anims)
+                inner = walk(tinycss2.parse_rule_list(r.content, skip_whitespace=True, skip_comments=True), soup_roots, vars_out, keyframes, used_anims, top=False)
                 if inner:
                     out.append('@%s %s {\n%s\n}' % (kw, prelude, '\n'.join(inner)))
             elif kw in ('keyframes', '-webkit-keyframes'):

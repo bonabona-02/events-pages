@@ -59,6 +59,10 @@
   function mount(data){
     var body=document.body, ev=(data&&data.events)||[];
     autoBookingEnd(ev);
+    // 카드 상태 알약(예정·진행 중·종료)은 오늘 날짜로 다시 맞춤 — 저장된 글자는 만든 날 기준이라(허브 카드와 같은 규칙)
+    document.querySelectorAll('.ev-it[data-s] [data-ev-st]').forEach(function(st){ var a=st.closest('.ev-it'), t=new Date(); t.setHours(0,0,0,0);
+      var k=t<d(a.getAttribute('data-s'))?'up':(t<=d(a.getAttribute('data-e')||a.getAttribute('data-s'))?'now':'past');
+      st.className='ev-st is-'+k; st.textContent=(KO?{up:'예정',now:'진행 중',past:'종료'}:{up:'Upcoming',now:'Happening now',past:'Wrapped'})[k]; });
     var cta=body.getAttribute('data-cta'), ctaLabel=body.getAttribute('data-cta-label')||(KO?'온라인 미팅 신청하기':'Book a meeting');
     if(cta==='/meet/'||cta==='/ko/meet/') cta=KO?'https://cubig.ai/ko/events/meet/':'https://cubig.ai/events/meet/'; // 옛 주소를 적은 페이지도 cubig.ai 미팅 페이지로
 
@@ -89,7 +93,7 @@
       hd=el('<div class="ev-sub"><div class="wrap">'+
         '<a class="ev-sub__home" href="'+C+'events/">'+(KO?'행사':'Events')+'</a><span class="ev-sub__sep" aria-hidden="true">/</span><span class="ev-sub__t"></span>'+
         '<div class="right">'+(cta?'<a class="btn" href="'+cta+'">'+ctaLabel+'</a>':'')+
-        '<button class="burger" aria-label="'+(KO?'행사 메뉴 열기':'Open events menu')+'" aria-expanded="false"><i></i></button></div></div></div>');
+        '</div></div></div>'); // 행사 메뉴 버튼 없음(11-17 현세 「없어도 되지 않을까」: 공홈 메뉴·허브로 충분)
       var h1=document.querySelector('main h1'); hd.querySelector('.ev-sub__t').textContent=h1?h1.textContent:'';
       SITE.parentNode.insertBefore(hd, SITE.nextSibling);
       var hero=document.querySelector('.d-hero')||document.querySelector('main > section');
@@ -116,12 +120,12 @@
       '<div class="top"><a class="logo" href="'+C+'"><img src="/assets/cubig-logo.svg" alt="CUBIG" width="117" height="20"></a><button class="close" aria-label="'+(KO?'메뉴 닫기':'Close menu')+'">×</button></div>'+
       (KO?'<div class="grp"><a href="https://cubig.ai/ko/events/">전체 행사<small>cubig.ai</small></a><a href="https://cubig.ai/press/">프레스 키트<small>cubig.ai</small></a></div>':'<div class="grp"><a href="https://cubig.ai/events/">All events<small>cubig.ai</small></a><a href="https://cubig.ai/press/">Press kit<small>cubig.ai</small></a></div>')+
       groups+(data.channel?'<div class="grp"><a href="'+data.channel+'" target="_blank" rel="noopener">'+(KO?'CUBIG 유튜브':'CUBIG on YouTube')+'<small>↗</small></a></div>':'')+'</nav></div>');
-    body.appendChild(menu);
     var btn=hd.querySelector('.burger');
+    if(btn){ body.appendChild(menu);
     function toggle(o){ menu.classList.toggle('open',o); btn.setAttribute('aria-expanded',o); menu.setAttribute('aria-hidden',!o); document.documentElement.style.overflow=o?'hidden':''; }
     btn.onclick=function(){toggle(true);};
     menu.querySelector('.close').onclick=menu.querySelector('.dim').onclick=function(){toggle(false);};
-    document.addEventListener('keydown',function(e){ if(e.key==='Escape') toggle(false); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') toggle(false); }); }
 
     // 바닥글: cubig.ai 공홈과 같은 구성
     var COLS=KO?[["플랫폼", [["syntitan/", "Syntitan"]]], ["핵심 역량", [["llmcapsule/", "LLM Capsule"], ["dts/", "DTS"]]], ["근거 & 학습 자료", [["proof/", "근거"], ["learn/", "학습 허브"], ["blogs/", "블로그"], ["articles/", "아티클"], ["glossary/", "용어집"]]], ["회사", [["company/", "회사 소개"], ["careers/", "채용"], ["news/", "뉴스"], ["press/", "프레스"]]]]:[["Platform", [["syntitan/", "Syntitan"]]], ["Capabilities", [["llmcapsule/", "LLM Capsule"], ["dts/", "DTS"]]], ["Proof & Learn", [["proof/", "Proof"], ["learn/", "Learn Hub"], ["blogs/", "Blog"], ["articles/", "Articles"], ["glossary/", "Glossary"]]], ["Company", [["company/", "About"], ["careers/", "Careers"], ["news/", "News"], ["press/", "Press"]]]];
