@@ -13,8 +13,11 @@
     var a = e.target.closest && e.target.closest('a[href]');
     if (!a || typeof gtag !== 'function' || a.closest('#site-header, .site-footer')) return;
     var h = a.getAttribute('href') || '';
+    var loc = a.closest('.ev-sub') ? 'event-detail-subbar' : (a.getAttribute('data-ev-href') === 'booking' ? 'event-detail-booking' : 'event-detail-hero');
     if (/cubig\.ai\/(ko\/)?events\/meet/.test(h)) {
-      gtag('event', 'cta_click', { cta_id: 'events_meet', cta_location: a.getAttribute('data-ev-href') === 'booking' ? 'event-detail-booking' : 'event-detail-hero' });
+      gtag('event', 'cta_click', { cta_id: 'events_meet', cta_location: loc });
+    } else if (/calendar\.app\.google|calendar\.google\.com\/calendar\/appointments/.test(h)) {
+      gtag('event', 'cta_click', { cta_id: 'events_onsite_meet', cta_location: loc });   // 행사 기간 현장 미팅 예약(끝나면 위 events_meet 주소로 바뀜)
     } else if (/^mailto:/.test(h)) {
       gtag('event', 'cta_click', { cta_id: 'events_mail', cta_location: 'event-detail' });
     } else if (/\.pdf(\?|#|$)/i.test(h)) {
