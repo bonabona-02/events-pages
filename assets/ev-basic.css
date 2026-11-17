@@ -41,6 +41,12 @@ html.has-site-chrome body{background:var(--h-paper)}
 .d-go i{display:inline-block;font-style:normal;transition:transform .25s var(--h-ease)}
 .d-go:hover{color:var(--vio-d)}
 .d-go:hover i{transform:translateX(3px)}
+/* 버튼이 많을 때(11-17 현세): 첫 줄 = 대표 버튼 하나 + 미팅 링크, 나머지 링크 2개 이상 = 둘째 줄 '다른 곳에서 보기' 작은 버튼.
+   모양 = 허브 필터 칩(.ev-fb)과 같은 8px 모서리 — 알약(분류 표시)과 헷갈리지 않게 둥근 알약은 쓰지 않음 */
+.d-alt{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:20px}
+.d-alt__h{margin-right:4px;font-size:13px;color:var(--h-soft)}
+.d-chip{display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:8px;border:1px solid var(--h-line-2);background:#fff;font-size:13px;font-weight:500;color:var(--h-ink-2);text-decoration:none;white-space:nowrap;transition:border-color .2s,color .2s}
+.d-chip:hover{border-color:#c4c4cf;color:var(--h-ink)}
 /* 대표 사진: 16:10, 큰 판 모서리. 영상이면 재생 표시 */
 .d-hero__ph{position:relative;display:block;aspect-ratio:16/10;border-radius:var(--h-r-l);overflow:hidden;background:var(--vio-m);box-shadow:0 1px 2px rgba(16,16,24,.06),0 24px 48px -32px rgba(22,22,26,.35)}
 .d-hero__ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--h-ease)}
@@ -111,6 +117,7 @@ a.ev-it:hover .ev-it__go i{transform:translateX(3px)}
   .d-facts > div:nth-child(even){border-left:1px solid var(--h-line)}
   .d-facts > div:nth-child(n+3){border-top:1px solid var(--h-line)}
   .d-facts > div{padding:14px 16px}
+  .d-facts > div:last-child:nth-child(odd){grid-column:1/-1}   /* 정보가 홀수 개면 마지막 칸을 한 줄 전체로(옆 빈칸 ❌) */
   .d-body.d-body--one{padding:56px 0 var(--h-py)}
   .d-main{display:block}
   .d-main p{font-size:16px}
@@ -120,8 +127,12 @@ a.ev-it:hover .ev-it__go i{transform:translateX(3px)}
   .more .p-head{flex-direction:row;align-items:flex-end;justify-content:space-between}
 }
 @media (max-width:599px){
+  /* 모바일 버튼 줄: 버튼은 화면 폭에 맞춰 세로로 쌓고, 미팅 링크는 그 아래 */
+  .d-acts{flex-direction:column;align-items:stretch;gap:10px}
+  .d-btn,.d-btn:not([hidden]) + .d-btn{width:100%;margin-left:0}
+  .d-go{align-self:flex-start;margin-top:6px}
+  .d-alt__h{flex-basis:100%}
   .ev-grid,.ev-grid:has(> :nth-child(2):last-child),.ev-grid:has(> :nth-child(3):last-child){grid-template-columns:minmax(0,1fr)}
-  .d-acts{gap:12px 20px}
 }
 @media (prefers-reduced-motion:reduce){
   .ev-it__im img,.ev-it__go i,.more .link::after,.d-btn,.d-hero__ph img,.d-go i{transition:none}

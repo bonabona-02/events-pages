@@ -74,6 +74,27 @@ def bg_url(div):
     return m.group(1).strip('\'"') if m else ''
 
 
+ALT_H = ('Also on', '다른 곳에서 보기')
+
+
+def group_alt(s, ko):
+    """버튼 줄 규칙(11-17 현세 「버튼 많을 때」): 첫 줄 = 대표 버튼 하나 + 온라인 미팅 링크.
+    다른 링크가 2개 이상이면 둘째 줄 '다른 곳에서 보기' 작은 버튼(.d-chip)으로 모은다. 여러 번 돌려도 같음."""
+    acts = s.select_one('.d-acts')
+    if not acts or s.select_one('.d-alt'):
+        return
+    lines = acts.select('a.d-btn--line')
+    if len(lines) < 2:
+        return
+    chips = []
+    for a in lines:
+        a.extract()
+        a['class'] = ['d-chip']
+        chips.append(str(a))
+    alt = BeautifulSoup(f'<div class="d-alt"><span class="d-alt__h">{ALT_H[1 if ko else 0]}</span>{"".join(chips)}</div>', 'html.parser')
+    acts.insert_after(alt)
+
+
 def upgrade(path, events, ko):
     raw = open(path, encoding='utf-8').read()
     if HEAD_OLD in raw:
@@ -138,6 +159,8 @@ def upgrade(path, events, ko):
         db = s.select_one('.d-body')
         if db:
             db['class'] = ['d-body', 'd-body--one']
+
+    group_alt(s, ko)
 
     # 다른 행사 카드: 지금 걸린 링크 순서 그대로, 허브 카드로
     grid = s.select_one('.more .grid, .more .ev-grid')
