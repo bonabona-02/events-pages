@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Page not found | CUBIG</title>
+<title>Page not found | CUBIG Events</title>
 <link rel="icon" href="https://cubig.ai/wp-content/themes/cubig/assets/images/logo/favicon.png" media="(prefers-color-scheme: light)">
 <link rel="icon" href="https://cubig.ai/wp-content/themes/cubig/assets/images/logo/favicon-dark.png" media="(prefers-color-scheme: dark)">
+
+<!-- ⑤ 추적 코드 (GA4, 마케팅팀 관리 — 직접 수정·삭제하지 마세요) -->
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -14,21 +16,27 @@ gtag('js', new Date());
 gtag('config', 'G-8MRD9BZ1VJ');
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MRD9BZ1VJ"></script>
-<script src="/assets/site-chrome.js" defer></script>
+
+<link rel="stylesheet" href="/assets/ev.css">
+<link rel="stylesheet" href="/assets/ev-pages.css">
+<script src="/assets/ev-nav.js" defer></script>
 <style>
-  *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#111;background:#fff;line-height:1.6}
-  main{max-width:960px;margin:0 auto;padding:96px 24px;min-height:50vh}
-  h1{font-size:32px;line-height:1.25;margin:0 0 12px}
-  p{margin:0 0 24px;color:#555}
-  a.button{display:inline-block;min-height:44px;padding:12px 24px;border-radius:8px;background:#111;color:#fff;text-decoration:none}
+  .nf{padding:120px 0 140px}
+  .nf h1{margin:0 0 12px}
+  .nf p{margin:0 0 32px;color:var(--ink-2,#55555c)}
+  .nf .acts{display:flex;flex-wrap:wrap;gap:12px}
 </style>
 </head>
-<body>
-<main>
-  <h1>Page not found</h1>
-  <p>This event page may have ended or moved.</p>
-  <p><a class="button" href="https://cubig.ai/">Go to cubig.ai</a></p>
+<body data-strip="off" data-cta="https://cubig.ai/events/meet/" data-cta-label="Book a call">
+<main class="nf">
+  <div class="wrap">
+    <h1>Page not found</h1>
+    <p>This event page may have moved. See all CUBIG events or book a call with the team.</p>
+    <div class="acts">
+      <a class="btn" href="https://cubig.ai/events/">See all events</a>
+      <a class="btn line" href="https://cubig.ai/events/meet/">Book a call</a>
+    </div>
+  </div>
 </main>
 </body>
 </html>

@@ -1,0 +1,139 @@
+/* 행사 상세 '기본 틀' v2 (2026-11-17) — cubig.ai/events 허브와 같은 룩. 페이지 구조는 tools/upgrade_detail_v2.py 가 바꾼다.
+   기준 = 공홈 테마 assets/css/events.css(허브): 토큰·위계·카드(.ev-it)·알약(.ev-st)·여백 128/88·모서리 12/16.
+   ev.css·ev-pages.css 뒤에 읽는다. 공홈 머리글·바닥글(assets/site/cubig-site.*)과 같이 쓴다.
+   첫 화면에 답이 다 보이게(11-17 현세 「직관성·가독성·사용 편의」): 왼쪽 = 종류·제목·한 줄 설명·버튼, 오른쪽 = 대표 사진,
+   그 아래 가로 정보 줄(날짜·장소·결과). 옆 칸 없이 본문은 한 줄 읽기 폭.
+   알약 규칙: 분류에만, 한 줄에 하나(히어로 = 종류·시기 / 카드 = 상태). */
+
+:root{
+  --h-ink:#16161a; --h-ink-2:#3a3a42; --h-mute:#6b6b76; --h-soft:#84848f;
+  --h-line:#e9e9ee; --h-line-2:#dedee4; --h-paper:#fafafa;
+  --vio:#8a77e0; --vio-d:#6a4fd0; --vio-dd:#4b33b5; --vio-l:#b9acf5; --vio-t:#f4f1fe; --vio-m:#e6e0fb;
+  --h-r:12px; --h-r-l:16px; --h-py:128px; --h-ease:cubic-bezier(.22,1,.36,1);
+}
+@media (max-width:759px){ :root{ --h-py:88px; } }
+
+html.has-site-chrome body{background:var(--h-paper)}
+/* 본문 폭 = 허브와 같은 1200 (양옆 40, 좁은 화면 20) */
+.wrap{max-width:1280px;padding:0 40px}
+@media (max-width:759px){ .wrap{padding:0 20px} }
+
+/* ── 히어로: 글 + 사진 두 칸, 아래 정보 줄 ── */
+.d-hero{background:radial-gradient(46% 380px at 80% 0%,rgba(138,119,224,.12),transparent 70%),var(--h-paper);padding:56px 0 72px;border-bottom:1px solid var(--h-line-2)}
+.d-hero__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 64px;align-items:center}
+.d-hero__in.is-solo{grid-template-columns:minmax(0,1fr)}
+.crumb{font-size:13px;color:var(--h-soft);gap:8px;align-items:center}
+.crumb a{color:var(--h-mute);transition:color .2s}
+.crumb a:hover{color:var(--vio-d)}
+.crumb span{color:#c9c9d2}
+.crumb span:last-child{color:var(--h-soft)}
+.d-hero .tg{display:inline-flex;align-items:center;height:30px;margin-top:40px;padding:0 14px;border-radius:999px;border:1px solid #e2e3e8;background:#fff;color:#525459;font-size:13px;line-height:1}
+.d-hero h1{margin-top:20px;max-width:none;font-size:clamp(32px,3.4vw,48px);line-height:1.12;letter-spacing:-.03em;font-weight:500;color:var(--h-ink);text-wrap:balance}
+:lang(ko) .d-hero h1{line-height:1.24}
+.d-hero .with{margin-top:16px;font-size:17px;line-height:1.6;color:var(--h-mute)}
+/* 버튼: 검정 꽉 찬 버튼(내용 보기) · 선 버튼(다른 링크) · 글자 링크(미팅 신청) — 허브 .ev-cta 와 같은 치수 */
+.d-acts{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin-top:32px}
+.d-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:6px;background:var(--h-ink);color:#fff;font-size:15px;font-weight:500;letter-spacing:-.01em;text-decoration:none;white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.12);transition:opacity .2s var(--h-ease),transform .2s var(--h-ease)}
+.d-btn:hover{opacity:.85;transform:translateY(-1px)}
+.d-btn--line{background:#fff;color:var(--h-ink);box-shadow:inset 0 0 0 1px var(--h-line-2)}
+.d-btn:not([hidden]) + .d-btn{margin-left:-12px}
+.d-go{font-size:15px;font-weight:500;color:var(--h-ink-2);text-decoration:none;white-space:nowrap}
+.d-go i{display:inline-block;font-style:normal;transition:transform .25s var(--h-ease)}
+.d-go:hover{color:var(--vio-d)}
+.d-go:hover i{transform:translateX(3px)}
+/* 버튼이 많을 때(11-17 현세): 첫 줄 = 대표 버튼 하나 + 미팅 링크, 나머지 링크 2개 이상 = 둘째 줄 '다른 곳에서 보기' 작은 버튼.
+   모양 = 허브 필터 칩(.ev-fb)과 같은 8px 모서리 — 알약(분류 표시)과 헷갈리지 않게 둥근 알약은 쓰지 않음 */
+.d-alt{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:20px}
+.d-alt__h{margin-right:4px;font-size:13px;color:var(--h-soft)}
+.d-chip{display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:8px;border:1px solid var(--h-line-2);background:#fff;font-size:13px;font-weight:500;color:var(--h-ink-2);text-decoration:none;white-space:nowrap;transition:border-color .2s,color .2s}
+.d-chip:hover{border-color:#c4c4cf;color:var(--h-ink)}
+/* 대표 사진: 16:10, 큰 판 모서리. 영상이면 재생 표시 */
+.d-hero__ph{position:relative;display:block;aspect-ratio:16/10;border-radius:var(--h-r-l);overflow:hidden;background:var(--vio-m);box-shadow:0 1px 2px rgba(16,16,24,.06),0 24px 48px -32px rgba(22,22,26,.35)}
+.d-hero__ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--h-ease)}
+a.d-hero__ph:hover img{transform:scale(1.03)}
+.d-hero__ph.is-video::after{content:"";position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.94) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%2316161a'/%3E%3C/svg%3E") 56% 50%/24px no-repeat;box-shadow:0 8px 24px -8px rgba(0,0,0,.4)}
+/* 정보 줄: 흰 판 하나, 칸 사이 1px 선 (허브 숫자 판 .ev-nums 와 같은 판) */
+.d-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin:48px 0 0;background:#fff;border:1px solid var(--h-line-2);border-radius:var(--h-r)}
+.d-facts > div{padding:18px 22px;min-width:0}
+.d-facts > div + div{border-left:1px solid var(--h-line)}
+.d-facts dt{font-size:13px;color:var(--h-soft)}
+.d-facts dd{margin:6px 0 0;font-size:15px;line-height:1.45;font-weight:500;color:var(--h-ink)}
+
+/* ── 본문: 옆 칸 없이 한 줄 읽기 폭 ── */
+.d-body.d-body--one{display:block;padding:80px 0 var(--h-py)}
+/* 글 = 전체 폭(읽기 폭 40em), 소제목 + 목록 = 허브 두 칸 머리(.ev-two 5:7)처럼 왼쪽 소제목 · 오른쪽 목록 */
+.d-main{max-width:none;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:64px}
+.d-main > *{grid-column:1/-1}
+.d-main p{font-size:17px;line-height:1.75;color:var(--h-ink-2);margin:0 0 20px}
+.d-main > p:first-child{font-size:20px;line-height:1.65;letter-spacing:-.01em;color:var(--h-ink)}
+.d-main h2{grid-column:1;margin:64px 0 0;padding:14px 0 0;border-top:1px solid var(--h-ink);font-size:22px;line-height:1.3;letter-spacing:-.015em;font-weight:500;color:var(--h-ink)}
+.d-main > h2:first-child{margin-top:0}
+.d-main ol{grid-column:2;margin:64px 0 0;border-top:1px solid var(--h-line-2);display:grid;gap:0}
+.d-main > h2:first-child + ol{margin-top:0}
+.d-main ol li{grid-template-columns:28px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--h-line);font-size:16px;line-height:1.6;color:var(--h-ink-2)}
+.d-main ol li:last-child{border-bottom:0}
+.d-main ol li span{display:grid;place-items:center;width:28px;height:28px;margin-top:-2px;border-radius:50%;background:var(--vio-t);color:var(--vio-dd);font-size:11.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.d-main .src{font-size:13px;color:var(--h-soft)}
+
+/* ── 다른 행사 = 허브 묶음과 같은 머리 + 카드 ── */
+.more{border-top:1px solid var(--h-line-2);padding:var(--h-py) 0;background:#fff}
+.more .p-head{align-items:flex-end;margin-bottom:40px}
+.more .p-head h2{font-size:clamp(30px,3.1vw,44px);line-height:1.12;letter-spacing:-.03em;font-weight:500;color:var(--h-ink)}
+:lang(ko) .more .p-head h2{line-height:1.24}
+.more .link{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 16px;border:1px solid var(--h-line-2);border-radius:8px;background:#fff;font-size:14px;font-weight:500;color:var(--h-ink);white-space:nowrap;transition:border-color .2s}
+.more .link::after{content:"→";transition:transform .25s var(--h-ease)}
+.more .link:hover{text-decoration:none;border-color:#c4c4cf}
+.more .link:hover::after{transform:translateX(3px)}
+/* 카드 수만큼 칸(최대 4) — 2장이면 반쪽이 비지 않게 3칸 폭 */
+.ev-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.ev-grid:has(> :nth-child(2):last-child),.ev-grid:has(> :nth-child(3):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}
+.ev-it{display:flex;flex-direction:column;background:#fff;border:1px solid var(--h-line-2);border-radius:var(--h-r);overflow:hidden;color:var(--h-ink);text-decoration:none;transition:border-color .25s var(--h-ease)}
+a.ev-it:hover{border-color:#c4c4cf}
+.ev-it__im{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--vio-m)}
+.ev-it__im img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--h-ease)}
+a.ev-it:hover .ev-it__im img{transform:scale(1.03)}
+.ev-it__cr{position:absolute;right:6px;bottom:6px;max-width:calc(100% - 12px);padding:3px 7px;border-radius:4px;background:rgba(13,13,18,.55);color:rgba(255,255,255,.88);font-size:10px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev-it__b{display:flex;flex-direction:column;align-items:flex-start;gap:6px;flex:1;padding:16px 18px 20px}
+.ev-st{display:inline-flex;align-items:center;height:24px;padding:0 10px;margin-bottom:4px;border-radius:999px;background:#f1f1f3;color:var(--h-ink-2);font-size:12px;font-weight:500;font-style:normal;line-height:1;white-space:nowrap}
+.ev-st.is-up{background:var(--vio-d);color:#fff}
+.ev-st.is-now{background:var(--h-ink);color:#fff}
+.ev-it__n{margin:0;font-size:18px;line-height:1.3;letter-spacing:-.01em;font-weight:500;color:var(--h-ink)}
+.ev-it__m{font-size:13px;line-height:1.45;color:var(--h-soft)}
+.ev-it__go{margin-top:auto;padding-top:10px;font-size:14px;font-weight:500;color:var(--h-ink)}
+.ev-it__go i{display:inline-block;font-style:normal;transition:transform .25s var(--h-ease)}
+a.ev-it:hover .ev-it__go i{transform:translateX(3px)}
+
+@media (max-width:1024px){
+  .d-hero__in{grid-template-columns:minmax(0,1fr)}
+  .d-hero__ph{order:-1;max-width:720px}
+  .ev-grid,.ev-grid:has(> :nth-child(2):last-child),.ev-grid:has(> :nth-child(3):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:759px){
+  .d-hero{padding:32px 0 56px}
+  .d-hero__ph{order:0;margin-top:4px}
+  .d-hero .tg{margin-top:28px}
+  .d-facts{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:32px}
+  .d-facts > div + div{border-left:0}
+  .d-facts > div:nth-child(even){border-left:1px solid var(--h-line)}
+  .d-facts > div:nth-child(n+3){border-top:1px solid var(--h-line)}
+  .d-facts > div{padding:14px 16px}
+  .d-facts > div:last-child:nth-child(odd){grid-column:1/-1}   /* 정보가 홀수 개면 마지막 칸을 한 줄 전체로(옆 빈칸 ❌) */
+  .d-body.d-body--one{padding:56px 0 var(--h-py)}
+  .d-main{display:block}
+  .d-main p{font-size:16px}
+  .d-main > p:first-child{font-size:18px}
+  .d-main h2{margin-top:48px}
+  .d-main ol{margin-top:16px}
+  .more .p-head{flex-direction:row;align-items:flex-end;justify-content:space-between}
+}
+@media (max-width:599px){
+  /* 모바일 버튼 줄: 버튼은 화면 폭에 맞춰 세로로 쌓고, 미팅 링크는 그 아래 */
+  .d-acts{flex-direction:column;align-items:stretch;gap:10px}
+  .d-btn,.d-btn:not([hidden]) + .d-btn{width:100%;margin-left:0}
+  .d-go{align-self:flex-start;margin-top:6px}
+  .d-alt__h{flex-basis:100%}
+  .ev-grid,.ev-grid:has(> :nth-child(2):last-child),.ev-grid:has(> :nth-child(3):last-child){grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  .ev-it__im img,.ev-it__go i,.more .link::after,.d-btn,.d-hero__ph img,.d-go i{transition:none}
+}
