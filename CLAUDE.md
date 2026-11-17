@@ -27,12 +27,14 @@
 
 | 자동으로 고침(없을 때만 채움) | 경고만(사람이 고침) |
 |---|---|
-| canonical · hreflang en/ko/x-default · title · description · OG/트위터 · 아이콘 | events.json에 그 페이지 줄이 없음(자동 정리 불가) |
+| canonical · hreflang en/ko/x-default · description(짧으면 날짜·미팅 문장 보강) · OG/트위터 · 아이콘 | events.json에 그 페이지 줄이 없음(자동 정리 불가) |
+| title: `<행사명> \| CUBIG Events` / `\| CUBIG 행사` 형식이 아니면 events.json 기준으로 다시 씀 | 한국어 소개(`summary_ko`) 없이 만든 한국어 기본 페이지 |
+| 영·한 중 빠진 페이지 = 기본 양식으로 생성(`make_basic_pages.py`) | 사진에 alt 없음 |
 | GA4 ⑤ 추적 코드 블록 | 대표 행사 여부(`major`) 없음(다가오는 행사) |
 | 공홈 머리글·바닥글·버튼 측정 연결(`cubig-site.css`·`ev-site.css`·`cubig-site.js`·`ev-nav.js`) | 본문 밖 자체 머리글·바닥글(`<header>`·`<footer>`) — 지우지 않음 |
 | 검색용 행사 정보 JSON-LD(events.json 기준으로 항상 다시 씀) | 금지 표현·영어 엠대시·큰따옴표(§11) |
 | 기본 양식 페이지의 부스 위치·현장 기록 자리(`<!-- ev:… -->` 사이만) | 끝난 행사에 남은 예정 문구 |
-| events.json `photo`가 비면 상세 첫 대표 사진, `thumb`가 없으면 640px 작은 사본 | 설명 길이 · 대표 사진과 카드 사진이 다름 |
+| events.json `photo`가 비면 상세 첫 대표 사진(`<main>`이 없으면 본문 첫 사진), `thumb`가 없으면 640px 작은 사본 | 설명 길이 · 대표 사진과 카드 사진이 다름 |
 | sitemap.xml에 없는 검색 노출 페이지 추가 | |
 
 - 본문(`<main>`)의 디자인·문구는 자동으로 바꾸지 않습니다. 버튼 클릭 측정은 링크 주소로 잡으므로(`ev-nav.js`) 사람이 만든 HTML에 측정 속성을 따로 붙일 필요가 없습니다.
@@ -153,7 +155,7 @@ events-pages/
 | `kind` | | 세부 분류: `exhibition` · `pitch` · `award` · `live` |
 | `label` · `label_ko` · `date` | | 연혁에 보이는 이름 · 날짜 표기 (없으면 title·start로 만듦) |
 | `city` · `cc` · `intl` | | 도시 · 나라 코드 · 해외 여부(해외 도장) |
-| `major` | 다가오는 행사는 ✓ | 대표 행사 여부 `true`/`false`. 대표 = 해외 대형 전시·컨퍼런스, 국내라도 큰 전시. 공홈 /events 예정 영역(배너·예정 카드)에서 `true`가 먼저 보이고, 같은 급끼리는 날짜순. **새 행사를 넣을 때 값을 모르면 작성자에게 묻고 꼭 적습니다**(빠지면 `check_pages.py` 경고). 기준이 애매하면 마케팅팀(현세) 확인 |
+| `major` | 다가오는 행사는 ✓ | 대표 행사 여부 `true`/`false`. 대표 = 해외 대형 전시·컨퍼런스, 국내라도 큰 전시. 공홈 /events 예정 영역(배너·예정 카드)에서 `true`가 먼저 보이고, 같은 급끼리는 날짜순. **새 행사를 넣을 때 값을 모르면 작성자에게 묻고 꼭 적습니다**(빠지면 `check_pages.py` 경고). 기준은 GTM이 정하고, 애매하면 GTM(수경님) 확인 |
 | `organizer` · `organizer_url` | | 행사 주최자 이름·주소. 검색용 정보(JSON-LD)에 들어감. 공식 사이트로 확인된 것만(추측 ❌) |
 | `booth_map` | | 부스 위치 지도 이미지 경로(예 `/assets/media/<행사>/booth-map.webp`). 기본 양식 페이지에 '부스 위치' 자리가 생기고, 누르면 크게 열림. 행사가 끝나면 자동으로 숨김 |
 | `portal` · `portal_label` · `portal_label_ko` | | 행사 공식 포털의 CUBIG 프로필 주소와 링크 글자(없으면 'CUBIG on the event portal' / '행사 포털의 CUBIG 프로필') |
