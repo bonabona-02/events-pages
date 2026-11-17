@@ -6,6 +6,26 @@
 */
 (function () {
   var KO = (document.documentElement.lang||'').slice(0,2)==='ko';
+  /* GA4 버튼 측정(11-17 🏷️ 태그·측정 구조 세션 요청) — 이벤트 이름은 택소노미 events.cubig.ai 탭과 글자 그대로.
+     상세 페이지는 GTM 없이 Google 태그만 있어서 이 코드가 미팅 신청·메일·제품 링크·PDF 클릭을 GA4로 보냄.
+     공홈 머리글·바닥글(#site-header·.site-footer) 안 클릭은 제외(메뉴의 Syntitan 등이 제품 카드 클릭으로 섞이지 않게). */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || typeof gtag !== 'function' || a.closest('#site-header, .site-footer')) return;
+    var h = a.getAttribute('href') || '';
+    if (/cubig\.ai\/(ko\/)?events\/meet/.test(h)) {
+      gtag('event', 'cta_click', { cta_id: 'events_meet', cta_location: a.getAttribute('data-ev-href') === 'booking' ? 'event-detail-booking' : 'event-detail-hero' });
+    } else if (/^mailto:/.test(h)) {
+      gtag('event', 'cta_click', { cta_id: 'events_mail', cta_location: 'event-detail' });
+    } else if (/\.pdf(\?|#|$)/i.test(h)) {
+      var f = h.split(/[?#]/)[0].split('/').pop();
+      gtag('event', 'file_download', { file_name: f, file_extension: 'pdf', link_url: a.href });
+    } else {
+      var m = h.match(/cubig\.ai\/(?:ko\/)?(syntitan|dts|llmcapsule)\b/);
+      if (m) gtag('event', 'cta_click', { cta_id: 'events_product', target: m[1], cta_location: 'event-detail' });
+    }
+  }, true);
+
   var TYPES = KO ? { exhibition: '전시·행사', stage: '수상·무대', live: 'On air' } : { exhibition: 'On the floor', stage: 'On stage', live: 'On air' };
   var M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   function d(s){ var p=s.split('-'); return new Date(+p[0], +p[1]-1, +p[2]); }
