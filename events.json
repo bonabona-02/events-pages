@@ -28,7 +28,7 @@
       "map_note": "Upcoming event. Details to follow.",
       "map_note_ko": "다가오는 행사입니다. 자세한 내용은 곧 알려드리겠습니다.",
       "map_where": "New York",
-      "map_where_ko": "New York",
+      "map_where_ko": "뉴욕",
       "stamp": "AI SUMMIT",
       "short": "AI Summit",
       "title_ko": "AI Summit New York",
@@ -81,7 +81,7 @@
       "photo": "/assets/media/press/public-ax-talk-concert.jpg",
       "src": "https://cubig.ai/ko/news/cubig-public-ax-talk-concert-sponsor/",
       "summary": "CUBIG is an official sponsor of the Agent Korea and Public AX Talk Concert in Seoul and shares two public-sector data cases.",
-      "summary_ko": "CUBIG은 Seoul에서 열리는 에이전트코리아 & 공공AX 토크콘서트를 공식 후원하고 공공기관 데이터 사례 두 건을 소개합니다.",
+      "summary_ko": "CUBIG은 서울에서 열리는 에이전트코리아 & 공공AX 토크콘서트를 공식 후원하고 공공기관 데이터 사례 두 건을 소개합니다.",
       "title_ko": "공공AX 토크콘서트 2026",
       "thumb": "/assets/media/press/public-ax-talk-concert.jpg",
       "badge": "Official sponsor",
@@ -106,7 +106,7 @@
       "cc": "PT",
       "intl": true,
       "photo": "/websummit-2026/venue.jpg",
-      "summary_ko": "CUBIG은 11월 9–12일 Lisbon MEO Arena·FIL에서 열린 Web Summit Lisbon 2026에 참가했습니다. AI Use Case 하나를 알려 주시면 CUBIG 팀이 30분 온라인 미팅으로 그 데이터를 함께 살펴봅니다.",
+      "summary_ko": "CUBIG은 11월 9–12일 리스본 MEO Arena·FIL에서 열린 Web Summit Lisbon 2026에 참가했습니다. AI Use Case 하나를 알려 주시면 CUBIG 팀이 30분 온라인 미팅으로 그 데이터를 함께 살펴봅니다.",
       "title_ko": "Web Summit Lisbon 2026에서 만난 CUBIG",
       "map": {
         "x": 643.4,
@@ -119,7 +119,7 @@
       "map_note": "30-minute working sessions on one AI use case.",
       "map_note_ko": "AI Use Case 하나를 두고 30분씩 이야기했습니다.",
       "map_where": "Lisbon",
-      "map_where_ko": "Lisbon",
+      "map_where_ko": "리스본",
       "stamp": "WEB SUMMIT",
       "card_title": "Web Summit Lisbon",
       "card_title_ko": "Web Summit Lisbon"
@@ -143,7 +143,7 @@
       "cc": "US",
       "intl": true,
       "photo": "/assets/media/photos/oracle-2026/booth-talk-1.jpg",
-      "summary_ko": "Oracle AI World 2026 · 2026년 10월 26–28일 · Las Vegas The Venetian Expo. AI-ready 데이터로 파일럿을 운영 단계까지 이어갑니다. CUBIG과 온라인 미팅을 신청할 수 있습니다.",
+      "summary_ko": "Oracle AI World 2026 · 2026년 10월 26–28일 · 라스베이거스 The Venetian Expo. AI-ready 데이터로 파일럿을 운영 단계까지 이어갑니다. CUBIG과 온라인 미팅을 신청할 수 있습니다.",
       "title_ko": "Oracle AI World 2026에서 만난 CUBIG",
       "map": {
         "x": 219.4,
@@ -301,7 +301,7 @@
       "photo": "/assets/media/photos/mwc-4yfn-2026/01.jpg",
       "credit": "Photo: JJxFile via Wikimedia Commons, CC BY-SA 4.0",
       "summary": "CUBIG joined 4YFN at MWC Barcelona 2026 as part of the SKT participant group.",
-      "summary_ko": "CUBIG은 SKT 참가기업으로 MWC Barcelona 2026의 4YFN에 참여했습니다.",
+      "summary_ko": "CUBIG은 SKT 참가기업으로 MWC 바르셀로나 2026의 4YFN에 참여했습니다.",
       "title_ko": "MWC / 4YFN 2026 참가",
       "thumb": "/assets/media/photos/mwc-4yfn-2026/01.jpg",
       "stamp": "MWC · 4YFN"
@@ -340,7 +340,7 @@
       "cc": "KR",
       "photo": "/assets/media/photos/tech-biz-ewha-2025/01.jpg",
       "summary": "CUBIG took part in Tech-Biz EHWA, an Ewha Womans University event in Seoul.",
-      "summary_ko": "CUBIG은 Seoul에서 열린 이화여대 Tech-Biz EHWA 행사에 참가했습니다.",
+      "summary_ko": "CUBIG은 서울에서 열린 이화여대 Tech-Biz EHWA 행사에 참가했습니다.",
       "title_ko": "Tech-Biz EHWA 2025",
       "thumb": "/assets/media/photos/tech-biz-ewha-2025/01.jpg"
     },
@@ -359,7 +359,7 @@
       "cc": "KR",
       "photo": "/assets/media/photos/nh-open-business-day-2025/01.jpg",
       "summary": "CUBIG joined NH Open Business Day 2025 at Conrad Seoul in Yeouido.",
-      "summary_ko": "CUBIG은 여의도 Conrad Seoul에서 열린 NH 오픈비즈니스데이 2025에 참가했습니다.",
+      "summary_ko": "CUBIG은 여의도 Conrad 서울에서 열린 NH 오픈비즈니스데이 2025에 참가했습니다.",
       "title_ko": "NH 오픈비즈니스데이 2025 참가",
       "thumb": "/assets/media/photos/nh-open-business-day-2025/01.jpg"
     },
@@ -400,7 +400,7 @@
       "intl": true,
       "photo": "/assets/media/photos/sff-2025/01.jpg",
       "summary": "CUBIG exhibited at Singapore FinTech Festival 2025 with support from Seoul Fintech Lab.",
-      "summary_ko": "CUBIG은 Seoul Fintech Lab 지원으로 Singapore FinTech Festival 2025에 전시했습니다.",
+      "summary_ko": "CUBIG은 서울핀테크랩 지원으로 Singapore FinTech Festival 2025에 전시했습니다.",
       "title_ko": "Singapore FinTech Festival 2025 참가",
       "thumb": "/assets/media/photos/sff-2025/01.jpg",
       "map": {
@@ -413,7 +413,7 @@
       "map_note": "Invest Seoul pavilion booth and a 5-minute pitch.",
       "map_note_ko": "Invest Seoul 공동관에서 부스를 열고 5분 피칭을 했습니다.",
       "map_where": "Singapore",
-      "map_where_ko": "Singapore",
+      "map_where_ko": "싱가포르",
       "stamp": "FINTECH FESTIVAL"
     },
     {
@@ -452,7 +452,7 @@
       "intl": true,
       "photo": "/assets/media/photos/scewc-2025/01.jpg",
       "summary": "CUBIG showed Syntitan at Smart City Expo World Congress 2025 in Barcelona.",
-      "summary_ko": "CUBIG은 Barcelona에서 열린 Smart City Expo World Congress 2025에서 Syntitan을 소개했습니다.",
+      "summary_ko": "CUBIG은 바르셀로나에서 열린 Smart City Expo World Congress 2025에서 Syntitan을 소개했습니다.",
       "title_ko": "Smart City Expo World Congress 2025 참가",
       "thumb": "/assets/media/photos/scewc-2025/01.jpg",
       "map": {
@@ -464,9 +464,9 @@
         "dy": 84.0
       },
       "map_note": "Syntitan at the Gangnam-gu and Seoul booth. Back in March 2026 for MWC / 4YFN.",
-      "map_note_ko": "Gangnam-gu·Seoul 부스에서 Syntitan을 소개했습니다. 2026년 3월에는 MWC / 4YFN으로 다시 찾았습니다.",
+      "map_note_ko": "강남구·서울 부스에서 Syntitan을 소개했습니다. 2026년 3월에는 MWC / 4YFN으로 다시 찾았습니다.",
       "map_where": "Barcelona",
-      "map_where_ko": "Barcelona",
+      "map_where_ko": "바르셀로나",
       "stamp": "SMART CITY EXPO"
     },
     {
@@ -486,7 +486,7 @@
       "intl": true,
       "photo": "/assets/media/photos/japan-it-week-2025/01.jpg",
       "summary": "CUBIG exhibited at Japan IT Week in Tokyo in the KDB NextONE pavilion.",
-      "summary_ko": "CUBIG은 KDB NextONE pavilion으로 Tokyo에서 열린 Japan IT Week에 전시했습니다.",
+      "summary_ko": "CUBIG은 KDB NextONE 공동관으로 도쿄에서 열린 Japan IT Week에 전시했습니다.",
       "title_ko": "Japan IT Week 2025 참가",
       "thumb": "/assets/media/photos/japan-it-week-2025/01.jpg",
       "map": {
@@ -500,7 +500,7 @@
       "map_note": "KDB NextONE pavilion booth.",
       "map_note_ko": "KDB NextONE 공동관에서 부스를 열었습니다.",
       "map_where": "Tokyo",
-      "map_where_ko": "Tokyo",
+      "map_where_ko": "도쿄",
       "stamp": "JAPAN IT WEEK"
     },
     {
@@ -533,7 +533,7 @@
       "map_note": "Pitch on LLM Capsule.",
       "map_note_ko": "LLM Capsule을 피칭했습니다.",
       "map_where": "Osaka",
-      "map_where_ko": "Osaka",
+      "map_where_ko": "오사카",
       "stamp": "PLUG IN OSAKA"
     },
     {
@@ -551,7 +551,7 @@
       "cc": "KR",
       "photo": "/assets/media/photos/smart-life-week-2025/01.jpg",
       "summary": "CUBIG exhibited at Smart Life Week 2025 at COEX, Seoul.",
-      "summary_ko": "CUBIG은 Seoul COEX에서 열린 2025 스마트라이프위크에 참가했습니다.",
+      "summary_ko": "CUBIG은 서울 COEX에서 열린 2025 스마트라이프위크에 참가했습니다.",
       "title_ko": "2025 스마트라이프위크",
       "thumb": "/assets/media/photos/smart-life-week-2025/01.jpg"
     },
@@ -588,7 +588,7 @@
       "cc": "KR",
       "photo": "/assets/media/photos/aws-summit-seoul-2025/01.jpg",
       "summary": "CUBIG exhibited for one day at AWS Tech Summit 2025 in Seoul.",
-      "summary_ko": "CUBIG은 Seoul에서 열린 AWS Tech Summit 2025에 하루 동안 전시했습니다.",
+      "summary_ko": "CUBIG은 서울에서 열린 AWS Tech Summit 2025에 하루 동안 전시했습니다.",
       "title_ko": "AWS Tech Summit 2025",
       "thumb": "/assets/media/photos/aws-summit-seoul-2025/01.jpg"
     },
@@ -608,7 +608,7 @@
       "cc": "KR",
       "photo": "/assets/media/photos/swcc-2025/01.jpg",
       "summary": "CUBIG exhibited with Seoul AI Hub at Smart Work & Contact Center Expo 2025 at COEX, Seoul.",
-      "summary_ko": "CUBIG은 Seoul COEX에서 열린 2025 스마트워크&컨택센터 엑스포에 서울AI허브와 함께 참가했습니다.",
+      "summary_ko": "CUBIG은 서울 COEX에서 열린 2025 스마트워크&컨택센터 엑스포에 서울AI허브와 함께 참가했습니다.",
       "title_ko": "2025 스마트워크&컨택센터 엑스포",
       "thumb": "/assets/media/photos/swcc-2025/01.jpg"
     },
@@ -628,7 +628,7 @@
       "photo": "/assets/media/press/startup-world-cup-seoul-2025.jpg",
       "src": "https://cubig.ai/news/cubig-worldcup-seoul/",
       "summary": "CUBIG won the Seoul regional final of Startup World Cup 2025 and advanced to the Grand Finale in Silicon Valley.",
-      "summary_ko": "CUBIG은 Startup World Cup 2025 서울 예선에서 우승해 Silicon Valley 본선에 진출했습니다.",
+      "summary_ko": "CUBIG은 Startup World Cup 2025 서울 예선에서 우승해 실리콘밸리 본선에 진출했습니다.",
       "title_ko": "Startup World Cup Seoul 2025 우승",
       "thumb": "/assets/media/press/startup-world-cup-seoul-2025.jpg",
       "badge": "Winner",
@@ -651,7 +651,7 @@
       "cc": "KR",
       "photo": "/assets/media/photos/nextrise-2025/01.jpg",
       "summary": "CUBIG exhibited at NextRise 2025 in Seoul at Booth A-002 in Hall B.",
-      "summary_ko": "CUBIG은 Seoul에서 열린 NextRise 2025에서 Hall B A-002 부스를 운영했습니다.",
+      "summary_ko": "CUBIG은 서울에서 열린 NextRise 2025에서 Hall B A-002 부스를 운영했습니다.",
       "title_ko": "NextRise 2025",
       "thumb": "/assets/media/photos/nextrise-2025/01.jpg"
     },
@@ -692,7 +692,7 @@
       "intl": true,
       "photo": "/assets/media/photos/vivatech-2025/01.jpg",
       "summary": "CUBIG exhibited at VivaTech 2025 in Paris at a Korea Startup booth.",
-      "summary_ko": "CUBIG은 Paris에서 열린 VivaTech 2025에 Korea Startup 부스로 전시했습니다.",
+      "summary_ko": "CUBIG은 파리에서 열린 VivaTech 2025에 Korea Startup 부스로 전시했습니다.",
       "title_ko": "VivaTech 2025 참가",
       "thumb": "/assets/media/photos/vivatech-2025/01.jpg",
       "map": {
@@ -705,7 +705,7 @@
       "map_note": "Korea Startup booth and K Startup Night pitch.",
       "map_note_ko": "Korea Startup 부스로 참가하고, K Startup Night에서 피칭했습니다.",
       "map_where": "Paris",
-      "map_where_ko": "Paris",
+      "map_where_ko": "파리",
       "stamp": "VIVATECH"
     },
     {
@@ -823,7 +823,7 @@
       "photo": "/assets/media/press/nextrise-2024.jpg",
       "src": "https://cubig.ai/news/cubig-global-innovator-award-nextrise-2024/",
       "summary": "CUBIG received the Global Innovator Award at NextRise 2024 Seoul, hosted by KITA and KDB.",
-      "summary_ko": "CUBIG은 KITA와 KDB가 주최한 NextRise 2024 Seoul에서 Global Innovator Award를 받았습니다.",
+      "summary_ko": "CUBIG은 KITA와 KDB가 주최한 NextRise 2024 서울에서 Global Innovator Award를 받았습니다.",
       "title_ko": "NextRise 2024 Global Innovator Award",
       "thumb": "/assets/media/press/nextrise-2024.jpg"
     }
